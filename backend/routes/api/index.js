@@ -1,10 +1,15 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
 
-const { setTokenCookie, restoreUser, requireAuth } = require('../../utils/auth.js');
-const { User } = require('../../db/models');
+// const { setTokenCookie, restoreUser, requireAuth } = require('../../utils/auth.js');
+// const { User } = require('../../db/models');
 
 const router = express.Router();
+const sessionRouter = require('./session.js');
+const usersRouter = require('./users.js');
+
+router.use('/session', sessionRouter);
+router.use('users', usersRouter);
 
 // // tests 'token' cookie
 // router.get('/set-token-cookie', asyncHandler(async (req, res) => {
@@ -27,11 +32,11 @@ const router = express.Router();
 //     return res.json(req.user);
 // });
 
-// // Post route testing the API route
-// router.post('/test', (req, res) => {
-//     res.json({
-//         requestBody: req.body
-//     })
-// });
+// Post route testing the API route
+router.post('/test', (req, res) => {
+    res.json({
+        requestBody: req.body
+    })
+});
 
 module.exports = router;
