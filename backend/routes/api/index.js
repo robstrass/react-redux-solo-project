@@ -9,7 +9,7 @@ const sessionRouter = require('./session.js');
 const usersRouter = require('./users.js');
 
 router.use('/session', sessionRouter);
-router.use('users', usersRouter);
+router.use('/users', usersRouter);
 
 // // tests 'token' cookie
 // router.get('/set-token-cookie', asyncHandler(async (req, res) => {
