@@ -1,4 +1,4 @@
-import Cookies from 'js-cookies';
+import Cookies from 'js-cookie';
 
 // this func allows fetch requests other than GETs to happen (by setting XSRF-TOKEN)
 export async function csrfFetch(url, options = {}) {
@@ -17,4 +17,9 @@ export async function csrfFetch(url, options = {}) {
     if (res.status >= 400) throw res;
 
     return res;
+}
+
+// gets XSRF token, only for dev
+export function restoreCSRF() {
+    return csrfFetch('/api/csrf/restore');
 }
