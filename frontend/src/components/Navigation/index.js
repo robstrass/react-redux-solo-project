@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
+import logo from '../../assets/Drivr-logo.png';
 
 function Navigation({ isLoaded }) {
     const sessionUser = useSelector(state => state.session.user);
@@ -16,15 +17,21 @@ function Navigation({ isLoaded }) {
         sessionLinks = (
             <>
                 <NavLink to = '/login'>Log In</NavLink>
-                <NavLink to = '/signup'>Sign Up</NavLink>
+                <NavLink to = '/signup'>
+                    <button id = 'signup-button'>Sign Up</button>
+                </NavLink>
             </>
         )
     }
 
     return (
-        <ul>
+        <ul className = 'nav-bar'>
             <li>
-                <NavLink exact to = '/'>Home</NavLink>
+                <NavLink exact to = '/'>
+                    <img src = {logo} alt = 'Drivr Logo'/>
+                </NavLink>
+            </li>
+            <li>
                 {isLoaded && sessionLinks}
             </li>
         </ul>
