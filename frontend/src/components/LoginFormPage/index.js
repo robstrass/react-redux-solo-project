@@ -50,6 +50,7 @@ function LoginFormPage() {
                     type = 'password'
                     value = { password }
                     onChange = {(e) => setPassword(e.target.value)}
+                    required
                 />
             </label>
             <button type = 'submit'>Log In</button>
