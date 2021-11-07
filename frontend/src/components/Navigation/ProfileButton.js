@@ -30,9 +30,9 @@ function ProfileButton({ user }) {
 
     return (
         <>
-            <button onClick = { openMenu }>
+            <div className = 'profile-button' onClick = { openMenu }>
                 <i class="far fa-user-circle"></i>
-            </button>
+            </div>
             {showMenu && (
                 <ul className = 'profile-dropdown'>
                     <li>{ user.username }</li>
