@@ -1,7 +1,15 @@
+.auth-errors {
+    display: flex;
+    justify-content: center;
+    background-color: #F24236;
+    width: fit-content;
+}
+
 .loginForm {
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
+    align-items: center;
     height: 25rem;
     width: 25rem;
 }
