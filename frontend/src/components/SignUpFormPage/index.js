@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom';
 import * as sessionActions from '../../store/session';
 
 import './SignupForm.css';
+import dotLogo from '../../assets/Drivr-dot-logo.png';
 
 function SignupFormPage() {
     const dispatch = useDispatch();
@@ -34,50 +35,50 @@ function SignupFormPage() {
     };
 
     return (
-        <form className = 'signupForm' onSubmit = { handleSubmit }>
-            <ul>
-                {errors.map((error, index) => <li key = {index}>
-                    {error}
-                </li>)}
-            </ul>
-            <label>
-                Email
+        <div className = 'signup-container'>
+            <form className = 'signupForm' onSubmit = { handleSubmit }>
+                <img className = 'signup-form-ele' src = { dotLogo } alt = 'dot logo'/>
+                <p className = 'signup-form-ele'>Sign Up for Drivr</p>
+                <ul className = 'auth-errors sign-form-ele'>
+                    {errors.map((error, index) => <li key = {index} className = 'signup-errors'>
+                        {error}
+                    </li>)}
+                </ul>
                 <input
+                    className = 'signup-input signup-form-ele'
                     type = 'text'
                     value = { email }
                     onChange = {e => setEmail(e.target.value)}
+                    placeholder = 'Email'
                     required
                 />
-            </label>
-            <label>
-                Username
                 <input
+                    className = 'signup-input signup-form-ele'
                     type = 'text'
                     value = { username }
                     onChange = {e => setUsername(e.target.value)}
+                    placeholder = 'Username'
                     required
                 />
-            </label>
-            <label>
-                Password
                 <input
+                    className = 'signup-input signup-form-ele'
                     type = 'password'
                     value = { password }
                     onChange = {e => setPassword(e.target.value)}
+                    placeholder = 'Password'
                     required
                 />
-            </label>
-            <label>
-                Confirm Password
                 <input
+                    className = 'signup-input signup-form-ele'
                     type = 'password'
                     value = { confirmPassword }
                     onChange = {e => setConfirmPassword(e.target.value)}
+                    placeholder = 'Confirm Password'
                     required
                 />
-            </label>
-            <button type = 'submit'>Sign Up</button>
-        </form>
+                <button className = 'signup-submit' type = 'submit'>Sign Up</button>
+            </form>
+        </div>
     );
 }
 
