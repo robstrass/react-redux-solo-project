@@ -30,7 +30,7 @@ function Navigation({ isLoaded }) {
         <ul className = 'nav-bar'>
             <li className = 'logo-li'>
                 <NavLink exact to = '/'>
-                    <img src = {logo} alt = 'Drivr Logo'/>
+                    <img id = 'bav-logo' src = {logo} alt = 'Drivr Logo'/>
                 </NavLink>
             </li>
             <li className = 'user-auth-li'>

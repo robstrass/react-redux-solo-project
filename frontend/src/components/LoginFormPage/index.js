@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
 import './LoginForm.css';
+import dotLogo from '../../assets/Drivr-dot-logo.png';
 
 function LoginFormPage() {
     const dispatch = useDispatch();
@@ -29,31 +30,31 @@ function LoginFormPage() {
     }
 
     return (
-        <div className = 'login-div'>
+        <div className = 'login-container'>
             <form className = 'loginForm' onSubmit = {handleSubmit}>
+                <img src = { dotLogo } alt = 'dot logo'/>
+                <p>Log in to Drivr</p>
                 <ul className = 'auth-errors'>
                     {errors.map((error, index) => <li key = {index}>
                         {error}
                     </li>)}
                 </ul>
-                <label>
-                    Username or Email
-                    <input
-                        type = 'text'
-                        value = { credential }
-                        onChange = {(e) => setCredential(e.target.value)}
-                        required
-                    />
-                </label>
-                <label>
-                    Password
-                    <input
-                        type = 'password'
-                        value = { password }
-                        onChange = {(e) => setPassword(e.target.value)}
-                        required
-                    />
-                </label>
+                <input
+                    className = 'login-input'
+                    type = 'text'
+                    value = { credential }
+                    onChange = {(e) => setCredential(e.target.value)}
+                    placeholder = 'Username or Email'
+                    required
+                />
+                <input
+                    className = 'login-input'
+                    type = 'password'
+                    value = { password }
+                    onChange = {(e) => setPassword(e.target.value)}
+                    placeholder = 'Password'
+                    required
+                />
                 <button type = 'submit'>Log In</button>
             </form>
         </div>
