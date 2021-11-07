@@ -32,15 +32,15 @@ function LoginFormPage() {
     return (
         <div className = 'login-container'>
             <form className = 'loginForm' onSubmit = {handleSubmit}>
-                <img src = { dotLogo } alt = 'dot logo'/>
-                <p>Log in to Drivr</p>
-                <ul className = 'auth-errors'>
-                    {errors.map((error, index) => <li key = {index}>
+                <img className = 'login-form-ele' src = { dotLogo } alt = 'dot logo'/>
+                <p className = 'login-form-ele'>Log in to Drivr</p>
+                <ul className = 'auth-errors login-form-ele'>
+                    {errors.map((error, index) => <li key = {index} className = 'login-errors'>
                         {error}
                     </li>)}
                 </ul>
                 <input
-                    className = 'login-input'
+                    className = 'login-input login-form-ele'
                     type = 'text'
                     value = { credential }
                     onChange = {(e) => setCredential(e.target.value)}
@@ -48,14 +48,15 @@ function LoginFormPage() {
                     required
                 />
                 <input
-                    className = 'login-input'
+                    className = 'login-input login-form-ele'
                     type = 'password'
                     value = { password }
                     onChange = {(e) => setPassword(e.target.value)}
                     placeholder = 'Password'
                     required
                 />
-                <button type = 'submit'>Log In</button>
+                <button className = 'login-submit' type = 'submit'>Log In</button>
+                {/* <a type = 'submit' className = 'login-submit'>Log In</a> */}
             </form>
         </div>
     )

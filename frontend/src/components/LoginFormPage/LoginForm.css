@@ -9,9 +9,19 @@
 .auth-errors {
     display: flex;
     justify-content: center;
-    background-color: #F24236;
     width: fit-content;
     margin: 0;
+    padding: 0;
+}
+
+.login-errors {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    background-color: #F24236;
+    border-radius: 4px;
+    padding: .5rem;
 }
 
 .loginForm {
@@ -24,13 +34,28 @@
     border: 1rem;
     border-radius: 8px;
     padding: 1rem;
-    width: 25%;
-    height: 100%;
+    width: 35%;
+    height: fit-content;
 }
 
 .login-input {
     height: 2rem;
     width: 75%;
+}
+
+.login-form-ele {
+    margin: .5rem 0 .5rem 0;
+}
+
+.login-submit {
+    box-sizing: border-box;
+    background-color: #5aa9e6;
+    color: white;
+    width: 75%;
+    height: 2.5rem;
+    margin: .5rem 0 .5rem 0;
+    border: 1px;
+    border-radius: 4px;
 }
 
 .loginForm > img {
