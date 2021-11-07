@@ -16,10 +16,12 @@ function Navigation({ isLoaded }) {
     } else {
         sessionLinks = (
             <>
-                <NavLink to = '/login'>Log In</NavLink>
-                <NavLink to = '/signup'>
-                    <button id = 'signup-button'>Sign Up</button>
-                </NavLink>
+                <div className = 'user-auth-div'>
+                    <NavLink className = 'login' to = '/login'>Log In</NavLink>
+                    <NavLink className = 'signup' to = '/signup'>Sign Up
+                        {/* <button id = 'signup-button'>Sign Up</button> */}
+                    </NavLink>
+                </div>
             </>
         )
     }
