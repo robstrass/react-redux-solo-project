@@ -16,7 +16,7 @@ li {
     margin: 0;
     padding: 0;
     width: 100%;
-    height: 5rem;
+    height: 7rem;
     background: transparent;
     background-color: rgba(0, 0, 0, 0.25) ;
 }
@@ -38,13 +38,18 @@ li {
 
 .profile-container {
     display: flex;
+    background-color: white;
+    box-sizing: border-box;
+    border: 1px;
+    border-radius: 4px;
+    padding: .25rem;
 }
 
 .profile-dropdown {
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-content: center;
     justify-content: center;
     padding: 0;
 }
@@ -53,10 +58,21 @@ li {
     display: flex;
     box-sizing: border-box;
     margin: .15rem;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
 }
 
+/* .showMenu-items:hover {
+
+} */
+
 .profile-email-p {
-    margin: 0;
+    margin: 0 0 0 .5rem;
+}
+
+.profile-logout {
+    width: 75%;
 }
 
 .login,

@@ -39,13 +39,16 @@ function ProfileButton({ user }) {
             {showMenu && (
                 <div className = 'profile-container'>
                     <ul className = 'profile-dropdown'>
+                        <li className = 'showMenu-items'>
+                            <i class="far fa-user-circle fa-lg"></i>
+                        </li>
                         <li className = 'showMenu-items'>{randomGreeting(greetings)}{ user.username }</li>
                         <li className = 'showMenu-items'>
-                            <i class="fas fa-envelope"></i>
+                            <i class="fas fa-envelope fa-lg"></i>
                             <p className = 'profile-email-p'>{ user.email }</p>
                         </li>
                         <li className = 'showMenu-items'>
-                            <button onClick = { logout }>Log Out</button>
+                            <button className = 'profile-logout' onClick = { logout }>Log Out</button>
                         </li>
                     </ul>
                 </div>
