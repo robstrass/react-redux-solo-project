@@ -1,8 +1,11 @@
 const express = require('express');
 const router = express.Router();
 
+const { restoreUser } = require('../utils/auth')
+
 const apiRouter = require('./api');
 
+router.use(restoreUser);
 router.use('/api', apiRouter);
 
 // Serves React build in production (XSRF Token for requests)
