@@ -36,6 +36,14 @@ li {
     align-items: center;
 }
 
+.profile-button {
+    transition: all 0.4s ease;
+}
+
+.profile-button:hover {
+    transform: scale(1.1);
+}
+
 .profile-container {
     display: flex;
     background-color: white;
@@ -61,18 +69,25 @@ li {
     width: 100%;
     align-items: center;
     justify-content: center;
+    transition: all 0.4s ease;
 }
 
-/* .showMenu-items:hover {
-
-} */
+.showMenu-items:hover {
+    transform: scale(1.1);
+}
 
 .profile-email-p {
     margin: 0 0 0 .5rem;
 }
 
 .profile-logout {
+    background-color: #f24236;
+    color: white;
+    font-size: 1rem;
+    border: 1px;
+    border-radius: 4px;
     width: 75%;
+    height: 1.5rem;
 }
 
 .login,
