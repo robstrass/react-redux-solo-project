@@ -29,8 +29,8 @@ function Navigation({ isLoaded }) {
     return (
         <ul className = 'nav-bar'>
             <li className = 'logo-li'>
-                <NavLink exact to = '/'>
-                    <img id = 'bav-logo' src = {logo} alt = 'Drivr Logo'/>
+                <NavLink exact to = '/homepage'>
+                    <img id = 'nav-logo' src = {logo} alt = 'Drivr Logo'/>
                 </NavLink>
             </li>
             <li className = 'user-auth-li'>
