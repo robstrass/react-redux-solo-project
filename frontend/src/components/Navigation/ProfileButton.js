@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { randomGreeting, greetings } from './greetings';
 import * as sessionActions from '../../store/session';
 
 function ProfileButton({ user }) {
@@ -36,13 +37,18 @@ function ProfileButton({ user }) {
                 )}
             </div>
             {showMenu && (
-                <ul className = 'profile-dropdown'>
-                    <li>{ user.username }</li>
-                    <li>{ user.email }</li>
-                    <li>
-                        <button onClick = { logout }>Log Out</button>
-                    </li>
-                </ul>
+                <div className = 'profile-container'>
+                    <ul className = 'profile-dropdown'>
+                        <li className = 'showMenu-items'>{randomGreeting(greetings)}{ user.username }</li>
+                        <li className = 'showMenu-items'>
+                            <i class="fas fa-envelope"></i>
+                            <p className = 'profile-email-p'>{ user.email }</p>
+                        </li>
+                        <li className = 'showMenu-items'>
+                            <button onClick = { logout }>Log Out</button>
+                        </li>
+                    </ul>
+                </div>
             )}
         </>
     );
