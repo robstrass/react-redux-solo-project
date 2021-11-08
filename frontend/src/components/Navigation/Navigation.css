@@ -93,11 +93,16 @@ li {
 .login,
 .signup {
     text-decoration: none;
+    transition: all 0.4s ease;
 }
 
 .login {
     color: white;
     margin-right: 1rem;
+}
+
+.login:hover {
+    transform: scale(1.1)
 }
 
 .signup {
@@ -107,4 +112,8 @@ li {
     border-radius: 3px;
     margin-left: 1rem;
     padding: 7.5px 15px;
+}
+
+.signup:hover {
+    transform: scale(1.1);
 }

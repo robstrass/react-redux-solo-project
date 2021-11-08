@@ -59,6 +59,11 @@
     border: 1px;
     border-radius: 4px;
     font-size: 1rem;
+    transition: all 0.4s ease;
+}
+
+.login-submit:hover {
+    transform: scale(1.05);
 }
 
 .loginForm > img {

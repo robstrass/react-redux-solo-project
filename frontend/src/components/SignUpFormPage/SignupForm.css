@@ -49,6 +49,7 @@
     width: 75%;
     height: 2.5rem;
     text-decoration: none;
+    transition: all 0.4s ease;
 }
 
 .signup-submit {
@@ -61,6 +62,12 @@
     border: 1px;
     border-radius: 4px;
     font-size: 1rem;
+    transition: all 0.4s ease;
+}
+
+.signup-submit:hover,
+.login-redirect:hover {
+    transform: scale(1.05);
 }
 
 .signupForm > img {
