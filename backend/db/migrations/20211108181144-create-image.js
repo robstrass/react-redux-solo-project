@@ -14,7 +14,6 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       albumId: {
-        allowNull: false,
         references: { model: 'Albums' },
         type: Sequelize.INTEGER
       },
