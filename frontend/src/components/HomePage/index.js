@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -10,23 +10,26 @@ function HomePage() {
     const dispatch = useDispatch();
     // console.log('state', useSelector(state => console.log(state.images)))
     const images = useSelector((state) => Object.values(state.image));
+    // const [isLoaded, setIsLoaded] = useState(false);
 
     console.log('image url', images);
 
     useEffect(() => {
         dispatch(loadImages())
-    },[dispatch])
+    },[dispatch]);
 
     const sessionUser = useSelector(state => state.session.user);
     if (!sessionUser) return <Redirect to = '/' />;
 
     return (
-        <>
-            {/* {images.map(image => (
-                <img key = {image.id} src = {image.imageUrl} alt = {image.content} />
-            ))} */}
-        </>
+        <div>
+            {images.length > 0 ? images.map(image => (
+                <img key = {image.id} src = {image.imageUrl} alt = 'car' />
+            )) : null}
+        </div>
     )
+
+    return null;
 }
 
 export default HomePage;
