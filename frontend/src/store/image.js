@@ -24,14 +24,14 @@ export const loadImages = () => async (dispatch) => {
 export const loadOneImage = (imageId) => async (dispatch) => {
     const response = await csrfFetch(`/api/images/${imageId}`);
 
-    if (response.id) {
+    if (response.ok) {
         const image = await response.json();
         dispatch(loadOne(image))
         return image;
     }
 }
 
-const initialState = {};
+const initialState = { all: {}, current: {} };
 
 const imageReducer = (state = initialState, action) => {
     let newState = {};
@@ -39,12 +39,13 @@ const imageReducer = (state = initialState, action) => {
         case LOAD_IMAGES:
             newState = { ...state };
             action.images.forEach(image => {
-                newState[image.id] = image;
+                // newState.all = {}
+                newState.all[image.id] = image;
             });
             return newState;
         case LOAD_IMAGE:
             newState = { ...state };
-            newState[action.image.id] = action.image;
+            newState.current = action.image;
             return newState;
         default:
             return state;

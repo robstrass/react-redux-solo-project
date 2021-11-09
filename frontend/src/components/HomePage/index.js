@@ -8,7 +8,7 @@ import './HomePage.css';
 
 function HomePage() {
     const dispatch = useDispatch();
-    const images = useSelector((state) => Object.values(state.image));
+    const images = useSelector((state) => Object.values(state.image.all));
 
     useEffect(() => {
         dispatch(loadImages())
