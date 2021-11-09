@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { loadImages } from '../../store/image';
@@ -24,15 +24,22 @@ function HomePage() {
     return (
         <div className = 'homepage-all-images'>
             {images.length > 0 ? images.map(image => (
-                <div className = 'homepage-indiv-image'>
-                    <img
-                        key = {image.id}
-                        src = {image.imageUrl}
-                        // style = {}
-                        alt = 'car'
-                        className = 'homepage-images'
-                    />
-                </div>
+                <NavLink className = 'homepage-nav-wrapper' key = {image.id} to = {`/images/${image.id}`}>
+                    <div
+
+                        className = 'homepage-indiv-image'
+                        // onClick = {() =>
+                        //     <NavLink to = {`/images/${image.id}`} />
+                        // }
+                    >
+                        <img
+                            src = {image.imageUrl}
+                            // style = {}
+                            alt = 'car'
+                            className = 'homepage-images'
+                        />
+                    </div>
+                </NavLink>
             )) : null}
         </div>
     )
