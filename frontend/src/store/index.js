@@ -2,9 +2,12 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 
 import sessionReducer from './session';
+import imageReducer from './image';
 
+// key is what's on state
 const rootReducer = combineReducers({
     session: sessionReducer,
+    image: imageReducer,
 });
 
 let enhancer;
