@@ -1,0 +1,44 @@
+.homepage-single-img-container {
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+    box-sizing: border-box;
+}
+
+.homepage-single-div-style {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    box-sizing: border-box;
+    width: 75%;
+    background-color: white;
+    border: 1px;
+    border-radius: 8px;
+}
+
+.homepage-single-img-div {
+    position: relative;
+    width: 5rem;
+    height: 25rem;
+    overflow: hidden;
+    box-sizing: border-box;
+    margin: 1rem;
+    background-color: rgba(0, 0, 0, .25);
+    width: auto;
+}
+
+.homepage-single-img {
+    position: absolute;
+    margin: auto;
+    top: -9999px;
+    bottom: -9999px;
+    right: -9999px;
+    left: -9999px;
+    width: 100%;
+    height: auto;
+}
+
+.homepage-single-img-content {
+    display: flex;
+    justify-content: center;
+}

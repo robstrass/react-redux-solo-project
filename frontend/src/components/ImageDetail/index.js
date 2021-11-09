@@ -4,29 +4,32 @@ import { useParams } from 'react-router-dom';
 
 import { loadOneImage } from '../../store/image';
 
+import './ImageDetail.css';
+
 function ImageDetail() {
     const dispatch = useDispatch();
     const { id } = useParams();
-    const images = useSelector((state) => (state.image.current))
-    console.log('images, ', images)
+    const image = useSelector((state) => (state.image.current))
+    console.log('image, ', image)
 
     useEffect(() => (
         dispatch(loadOneImage(id))
     ), [dispatch]);
 
     return (
-            <>
-                <h2>Youre here</h2>
+        <div className = 'homepage-single-img-container'>
+            {/* <h2>Youre here</h2> */}
+            <div className = 'homepage-single-div-style'>
                 <div className = 'homepage-single-img-div'>
-                    {/* {images.length > 0 ? */}
-                        {/* <img
-                            src = {images[id].imageUrl}
-                            alt = 'pic'
-                            className = 'homepage-single-img'
-                        /> */}
-                    {/* : null} */}
+                    <img
+                        className = 'homepage-single-img'
+                        src = {image.imageUrl}
+                        alt = 'car photo'
+                    />
                 </div>
-            </>
+                <div className = 'homepage-single-img-content'> Author says: {image.content}</div>
+            </div>
+        </div>
     )
 }
 
