@@ -42,8 +42,10 @@ const imageReducer = (state = initialState, action) => {
                 newState[image.id] = image;
             });
             return newState;
-        // case LOAD_IMAGE:
-        //     newState = { ...state }
+        case LOAD_IMAGE:
+            newState = { ...state };
+            newState[action.image.id] = action.image;
+            return newState;
         default:
             return state;
     }
