@@ -2,7 +2,7 @@ import { csrfFetch } from './csrf';
 
 const LOAD_IMAGES = '/homepage/loadImages';
 
-const load = (images) => ({
+const loadAll = (images) => ({
     type: LOAD_IMAGES,
     images
 });
@@ -11,7 +11,7 @@ const load = (images) => ({
 export const loadImages = () => async (dispatch) => {
     const response = await csrfFetch('/api/images');
     const images = await response.json();
-    dispatch(load(images));
+    dispatch(loadAll(images));
     return images;
 }
 
