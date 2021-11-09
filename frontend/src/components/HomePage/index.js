@@ -22,9 +22,17 @@ function HomePage() {
     if (!sessionUser) return <Redirect to = '/' />;
 
     return (
-        <div>
+        <div className = 'homepage-all-images'>
             {images.length > 0 ? images.map(image => (
-                <img key = {image.id} src = {image.imageUrl} alt = 'car' />
+                <div className = 'homepage-indiv-image'>
+                    <img
+                        key = {image.id}
+                        src = {image.imageUrl}
+                        // style = {}
+                        alt = 'car'
+                        className = 'homepage-images'
+                    />
+                </div>
             )) : null}
         </div>
     )

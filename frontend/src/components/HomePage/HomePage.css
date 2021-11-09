@@ -1,0 +1,25 @@
+.homepage-all-images {
+    display: flex;
+    justify-content: center;
+}
+
+.homepage-indiv-image {
+    position: relative;
+    width: 5rem;
+    height: 10rem;
+    overflow: hidden;
+    box-sizing: border-box;
+    margin: 1rem;
+    background-color: rgba(0, 0, 0, .25);
+    width: 25%;
+}
+
+.homepage-images {
+    position: absolute;
+    margin: auto;
+    top: -9999px;
+    bottom: -9999px;
+    right: -9999px;
+    left: -9999px;
+    width: 100%;
+}
