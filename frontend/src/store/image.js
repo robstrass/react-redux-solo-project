@@ -43,7 +43,7 @@ const imageReducer = (state = initialState, action) => {
             });
             return newState;
         // case LOAD_IMAGE:
-
+        //     newState = { ...state }
         default:
             return state;
     }

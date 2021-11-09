@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Redirect, NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -8,11 +8,7 @@ import './HomePage.css';
 
 function HomePage() {
     const dispatch = useDispatch();
-    // console.log('state', useSelector(state => console.log(state.images)))
     const images = useSelector((state) => Object.values(state.image));
-    // const [isLoaded, setIsLoaded] = useState(false);
-
-    console.log('image url', images);
 
     useEffect(() => {
         dispatch(loadImages())
@@ -25,16 +21,9 @@ function HomePage() {
         <div className = 'homepage-all-images'>
             {images.length > 0 ? images.map(image => (
                 <NavLink className = 'homepage-nav-wrapper' key = {image.id} to = {`/images/${image.id}`}>
-                    <div
-
-                        className = 'homepage-indiv-image'
-                        // onClick = {() =>
-                        //     <NavLink to = {`/images/${image.id}`} />
-                        // }
-                    >
+                    <div className = 'homepage-indiv-image'>
                         <img
                             src = {image.imageUrl}
-                            // style = {}
                             alt = 'car'
                             className = 'homepage-images'
                         />
@@ -43,8 +32,6 @@ function HomePage() {
             )) : null}
         </div>
     )
-
-    return null;
 }
 
 export default HomePage;
