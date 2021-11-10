@@ -8,10 +8,12 @@ const router = express.Router();
 const sessionRouter = require('./session.js');
 const usersRouter = require('./users.js');
 const imageRouter = require('./images.js');
+const profileRouter = require('./profile.js');
 
 router.use('/session', sessionRouter);
 router.use('/users', usersRouter);
 router.use('/images', imageRouter);
+router.use('/profile', profileRouter);
 
 // // tests 'token' cookie
 // router.get('/set-token-cookie', asyncHandler(async (req, res) => {

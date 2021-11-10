@@ -5,6 +5,8 @@ import LoginFormPage from './components/LoginFormPage';
 import SignupFormPage from './components/SignUpFormPage';
 import Navigation from './components/Navigation';
 import HomePage from './components/HomePage';
+import ImageDetail from './components/ImageDetail';
+import UserProfile from './components/UserProfile';
 import * as sessionActions from './store/session';
 
 function App() {
@@ -28,6 +30,12 @@ function App() {
         </Route>
         <Route path = '/signup'>
           <SignupFormPage />
+        </Route>
+        <Route path = '/images/:id'>
+          <ImageDetail />
+        </Route>
+        <Route path = '/profile'>
+          <UserProfile />
         </Route>
       </Switch>
     )}

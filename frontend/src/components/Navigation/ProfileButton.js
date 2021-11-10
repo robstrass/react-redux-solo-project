@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import { randomGreeting, greetings } from './greetings';
 import * as sessionActions from '../../store/session';
 
@@ -33,18 +34,23 @@ function ProfileButton({ user }) {
         <>
             <div className = 'profile-button' onClick = { openMenu }>
                 {!showMenu && (
-                    <i class="far fa-user-circle fa-2x"></i>
+                    <i className="far fa-user-circle fa-2x"></i>
                 )}
             </div>
             {showMenu && (
                 <div className = 'profile-container'>
                     <ul className = 'profile-dropdown'>
                         <li className = 'showMenu-items'>
-                            <i class="far fa-user-circle fa-lg"></i>
+                            <i className="far fa-user-circle fa-lg"></i>
                         </li>
-                        <li className = 'showMenu-items'>{randomGreeting(greetings)}{ user.username }</li>
                         <li className = 'showMenu-items'>
-                            <i class="fas fa-envelope fa-lg"></i>
+                            {randomGreeting(greetings)}
+                            <NavLink className = 'profile-nav' to = '/profile'>
+                                 { user.username }
+                            </NavLink>
+                        </li>
+                        <li className = 'showMenu-items'>
+                            <i className="fas fa-envelope fa-lg"></i>
                             <p className = 'profile-email-p'>{ user.email }</p>
                         </li>
                         <li className = 'showMenu-items'>
