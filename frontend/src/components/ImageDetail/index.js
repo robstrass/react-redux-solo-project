@@ -14,7 +14,7 @@ function ImageDetail() {
 
     useEffect(() => (
         dispatch(loadOneImage(id))
-    ), [dispatch]);
+    ), [dispatch, id]);
 
     const sessionUser = useSelector(state => state.session.user);
     if (!sessionUser) return <Redirect to = '/' />;
@@ -27,7 +27,7 @@ function ImageDetail() {
                     <img
                         className = 'homepage-single-img'
                         src = {image.imageUrl}
-                        alt = 'car photo'
+                        alt = 'car'
                     />
                 </div>
                 <div className = 'homepage-single-img-content'> Author says: {image.content}</div>

@@ -13,7 +13,7 @@ function UserImage() {
 
     useEffect(() => (
         dispatch(loadOneImage(id))
-    ), [dispatch]);
+    ), [dispatch, id]);
 
     const sessionUser = useSelector(state => state.session.user);
     if (!sessionUser) return <Redirect to = '/' />;
@@ -25,7 +25,7 @@ function UserImage() {
                     <img
                         className = 'profile-single-img'
                         src = {image.imageUrl}
-                        alt = 'car photo'
+                        alt = 'car'
                     />
                 </div>
             </div>

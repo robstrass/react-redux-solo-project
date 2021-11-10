@@ -15,7 +15,7 @@ function UserProfile() {
 
     useEffect(() => {
         dispatch(loadImages(userId))
-    }, [dispatch]);
+    }, [dispatch, userId]);
 
     if (!sessionUser) return <Redirect to = '/' />;
 
