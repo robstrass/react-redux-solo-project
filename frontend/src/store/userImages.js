@@ -23,6 +23,13 @@ const initialState = { all: {}, current: {} };
 const userImageReducer = (state = initialState, action) => {
     let newState = {};
     switch(action.type) {
+        case LOAD_IMAGES:
+        newState = { ...state };
+            action.images.forEach(image => {
+                newState.current = {};
+                newState.all[image.id] = image;
+            });
+            return newState;
         default:
             return state;
     }
