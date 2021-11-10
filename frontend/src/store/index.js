@@ -3,11 +3,13 @@ import thunk from 'redux-thunk';
 
 import sessionReducer from './session';
 import imageReducer from './image';
+import userImageReducer from './userImages';
 
 // key is what's on state
 const rootReducer = combineReducers({
     session: sessionReducer,
     image: imageReducer,
+    userImage: userImageReducer,
 });
 
 let enhancer;

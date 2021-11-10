@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, Redirect } from 'react-router-dom';
 
 import { loadOneImage } from '../../store/image';
 
@@ -15,6 +15,9 @@ function ImageDetail() {
     useEffect(() => (
         dispatch(loadOneImage(id))
     ), [dispatch]);
+
+    const sessionUser = useSelector(state => state.session.user);
+    if (!sessionUser) return <Redirect to = '/' />;
 
     return (
         <div className = 'homepage-single-img-container'>
