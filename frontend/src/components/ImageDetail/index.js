@@ -30,7 +30,7 @@ function ImageDetail() {
                         alt = 'car'
                     />
                 </div>
-                <div className = 'homepage-single-img-content'> Author says: {image.content}</div>
+                <div className = 'homepage-single-img-content'>{image.content}</div>
             </div>
         </div>
     )

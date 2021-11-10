@@ -11,16 +11,19 @@ function Navigation({ isLoaded }) {
     let sessionLinks;
     if (sessionUser) {
         sessionLinks = (
-            <ProfileButton user = { sessionUser } />
+            <div className = 'nav-authed-user-buttons'>
+                <NavLink className = 'navbar-upload-button' to = '/upload'>
+                    <i className = "fas fa-cloud-upload-alt fa-2x"></i>
+                </NavLink>
+                <ProfileButton user = { sessionUser } />
+            </div>
         );
     } else {
         sessionLinks = (
             <>
                 <div className = 'user-auth-div'>
                     <NavLink className = 'login' to = '/login'>Log In</NavLink>
-                    <NavLink className = 'signup' to = '/signup'>Sign Up
-                        {/* <button id = 'signup-button'>Sign Up</button> */}
-                    </NavLink>
+                    <NavLink className = 'signup' to = '/signup'>Sign Up</NavLink>
                 </div>
             </>
         )

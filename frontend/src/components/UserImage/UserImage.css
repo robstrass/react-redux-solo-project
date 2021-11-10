@@ -36,3 +36,10 @@
     width: 100%;
     height: auto;
 }
+
+.profile-single-img-content {
+    display: flex;
+    box-sizing: border-box;
+    justify-content: center;
+    margin-bottom: 1rem;
+}

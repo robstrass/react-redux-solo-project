@@ -28,6 +28,7 @@ function UserImage() {
                         alt = 'car'
                     />
                 </div>
+                <div className = 'profile-single-img-content'>{image.content}</div>
             </div>
         </div>
     )
