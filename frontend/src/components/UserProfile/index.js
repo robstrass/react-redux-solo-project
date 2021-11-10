@@ -9,7 +9,7 @@ import './UserProfile.css';
 function UserProfile() {
     const dispatch = useDispatch();
     const images = useSelector((state) => Object.values(state.userImage.all));
-
+    console.log('images', images)
     const sessionUser = useSelector(state => state.session.user);
     const userId = sessionUser.id;
 

@@ -4,7 +4,7 @@ const { check, validationResult } = require('express-validator');
 const { restoreUser } = require('../../utils/auth');
 const { handleValidationErrors } = require('../../utils/validation');
 
-const { Image } = require('../../db/models')
+const { Image, Album } = require('../../db/models')
 
 const router = express.Router();
 
@@ -24,7 +24,8 @@ router.get('/:userId(\\d+)/images', restoreUser, asyncHandler(async (req, res) =
     const images = await Image.findAll({
         where: {
             userId,
-        }
+        },
+        include: {model: Album}
     })
     res.json(images);
 }));
