@@ -7,6 +7,7 @@ import Navigation from './components/Navigation';
 import HomePage from './components/HomePage';
 import ImageDetail from './components/ImageDetail';
 import UserProfile from './components/UserProfile';
+import UserImage from './components/UserImage';
 import * as sessionActions from './store/session';
 
 function App() {
@@ -34,8 +35,11 @@ function App() {
         <Route path = '/images/:id'>
           <ImageDetail />
         </Route>
-        <Route path = '/profile'>
+        <Route exact path = '/profile'>
           <UserProfile />
+        </Route>
+        <Route path = '/profile/images/:id'>
+          <UserImage />
         </Route>
       </Switch>
     )}
