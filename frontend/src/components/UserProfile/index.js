@@ -12,7 +12,6 @@ function UserProfile() {
 
     const sessionUser = useSelector(state => state.session.user);
     const userId = sessionUser.id;
-    console.log('images', images);
 
     useEffect(() => {
         dispatch(loadImages(userId))

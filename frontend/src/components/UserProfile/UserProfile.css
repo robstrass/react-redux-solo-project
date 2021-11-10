@@ -1,0 +1,35 @@
+.profile-all-images {
+    display: flex;
+    justify-content: center;
+}
+
+.profile-nav-wrapper {
+    width: 25%;
+    margin: 1rem;
+    box-sizing: border-box;
+}
+
+.profile-indiv-image {
+    position: relative;
+    width: 5rem;
+    height: 10rem;
+    overflow: hidden;
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, .25);
+    width: 100%;
+    transition: all 0.4s ease;
+}
+
+.profile-indiv-image:hover {
+    transform: scale(1.05);
+}
+
+.profile-images {
+    position: absolute;
+    margin: auto;
+    top: -9999px;
+    bottom: -9999px;
+    right: -9999px;
+    left: -9999px;
+    width: 100%;
+}
