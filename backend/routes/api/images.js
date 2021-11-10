@@ -12,12 +12,13 @@ const imageNotFoundError = productId => {
     throw err;
 };
 
-// Homepage
+// Get all images
 router.get('/', asyncHandler(async (req, res) => {
     const images = await Image.findAll()
     res.json(images);
 }));
 
+// Get one image
 router.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
     const imageId = req.params.id;
     const image = await Image.findByPk(imageId);
@@ -28,5 +29,8 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
         next(imageNotFoundError(imageId));
     }
 }));
+
+// Get all user's images
+
 
 module.exports = router;
