@@ -1,7 +1,7 @@
 import { csrfFetch } from './csrf';
 
 const LOAD_IMAGES = '/homepage/loadImages';
-const LOAD_IMAGE = '/homepage/getOneImage';
+const LOAD_IMAGE = '/homepage/loadOneImage';
 
 const loadAll = (images) => ({
     type: LOAD_IMAGES,

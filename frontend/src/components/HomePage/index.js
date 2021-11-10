@@ -20,7 +20,11 @@ function HomePage() {
     return (
         <div className = 'homepage-all-images'>
             {images.length > 0 ? images.map(image => (
-                <NavLink className = 'homepage-nav-wrapper' key = {image.id} to = {`/images/${image.id}`}>
+                <NavLink
+                    className = 'homepage-nav-wrapper'
+                    key = {image.id}
+                    to = {`/images/${image.id}`}
+                >
                     <div className = 'homepage-indiv-image'>
                         <img
                             src = {image.imageUrl}
