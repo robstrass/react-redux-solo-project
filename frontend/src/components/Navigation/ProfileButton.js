@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import { randomGreeting, greetings } from './greetings';
 import * as sessionActions from '../../store/session';
 
@@ -42,7 +43,12 @@ function ProfileButton({ user }) {
                         <li className = 'showMenu-items'>
                             <i className="far fa-user-circle fa-lg"></i>
                         </li>
-                        <li className = 'showMenu-items'>{randomGreeting(greetings)}{ user.username }</li>
+                        <li className = 'showMenu-items'>
+                            {randomGreeting(greetings)}
+                            <NavLink className = 'profile-nav' to = '/profile'>
+                                 { user.username }
+                            </NavLink>
+                        </li>
                         <li className = 'showMenu-items'>
                             <i className="fas fa-envelope fa-lg"></i>
                             <p className = 'profile-email-p'>{ user.email }</p>

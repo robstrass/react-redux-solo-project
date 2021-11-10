@@ -51,6 +51,11 @@ li {
     border: 1px;
     border-radius: 4px;
     padding: .25rem;
+    transition: all 0.4s ease;
+}
+
+.profile-container:hover {
+    transform: scale(1.1);
 }
 
 .profile-dropdown {
@@ -72,8 +77,13 @@ li {
     transition: all 0.4s ease;
 }
 
+.profile-nav {
+    /* text-decoration: none; */
+    color: black;
+}
+
 .showMenu-items:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 .profile-email-p {

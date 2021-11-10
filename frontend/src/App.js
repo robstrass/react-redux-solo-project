@@ -33,6 +33,9 @@ function App() {
         <Route path = '/images/:id'>
           <ImageDetail />
         </Route>
+        <Route path = '/profile'>
+          <h2>You're here</h2>
+        </Route>
       </Switch>
     )}
     </>
