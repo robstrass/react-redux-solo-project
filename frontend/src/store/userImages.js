@@ -49,7 +49,7 @@ export const addOneImage = (image) => async (dispatch) => {
 
     if (response.ok) {
         const image = await response.json();
-        dispatch(addOneImage(image));
+        dispatch(addImage(image));
         return image;
     }
 }
