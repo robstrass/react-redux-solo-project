@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory,  Redirect } from 'react-router-dom'
+import { Redirect, useHistory } from 'react-router-dom'
 
 import { editOneImage } from '../../store/userImages';
 
@@ -15,11 +15,13 @@ function EditImage({ image }) {
     // const [imageUrl, setImageUrl] = useState('');
     const [content, setContent] = useState(image.content);
     const [albumId, setAlbumId] = useState();
+    console.log('edit image', image)
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
         const editedImage = {
+            id: image.id,
             userId: id,
             albumId,
             image: image.imageUrl,
@@ -27,6 +29,7 @@ function EditImage({ image }) {
         }
 
         dispatch(editOneImage(editedImage));
+        history.push('/profile');
     }
 
     if (!sessionUser) return <Redirect to = '/' />

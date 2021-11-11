@@ -15,9 +15,7 @@ function UserImage() {
     const history = useHistory();
     const { id } = useParams();
     const image = useSelector((state) => (state.userImage.current));
-    console.log('image', typeof image)
-    const [showModal, setShowModal] = useState(false);
-    const [showModal2, setShowModal2] = useState(false)
+    // console.log('image', typeof image)
 
     useEffect(() => (
         dispatch(loadOneImage(id))
@@ -31,6 +29,7 @@ function UserImage() {
         history.push('/profile');
         return;
     }
+    console.log('single image', image)
 
     return (
         <div className = 'profile-single-img-container'>
@@ -45,11 +44,6 @@ function UserImage() {
                 <div className = 'profile-single-img-content'>{image.content}</div>
                 <div className = 'profile-single-img-buttons'>
                     <EditImageModal image = { image } />
-                    {/* { showModal && (
-                        <Modal onClose = {() => setShowModal(false)}>
-                            <h2>hi</h2>
-                        </Modal>
-                    )} */}
                     <DeleteImageModal image = { image } />
                 </div>
             </div>
