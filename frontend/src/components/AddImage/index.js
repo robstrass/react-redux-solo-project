@@ -48,49 +48,51 @@ function AddImage() {
 
     return (
         <div className = 'new-image-form-container'>
-            <h3>Add an Image</h3>
-            {errors.length > 0 && (<div className = 'new-image-errors-div'>
-                <ul className = 'new-image-errors-ul'>
-                    { errors.map(error => (
-                        <li
-                            className = 'new-image-error-li'
-                            key = { error }
-                        >
-                            { error }
-                        </li>
-                    ))}
-                </ul>
-            </div>)}
-            <form
-                className = 'new-image-form'
-                onSubmit = { handleSubmit }
-            >
-                <input
-                    className = 'new-image-field'
-                    placeholder = 'Image URL'
-                    value = { imageUrl }
-                    onChange = { e => setImageUrl(e.target.value) }
-                />
-                <input
-                    className = 'new-image-field'
-                    placeholder = 'Content'
-                    value = { content }
-                    onChange = { e => setContent(e.target.value) }
-                />
-                <input
-                    className = 'new-image-field'
-                    placeholder = 'AlbumId Placeholder (change)'
-                    value = { albumId }
-                    type = 'number'
-                    onChange = { e => setAlbumId(e.target.value) }
-                />
-                <button
-                    className = 'new-image-button'
-                    type = 'submit'
+            <div className = 'new-image-form-div'>
+                <p id = 'new-image-p'>Add an Image</p>
+                {errors.length > 0 && (<div className = 'new-image-errors-div'>
+                    <ul className = 'new-image-errors-ul'>
+                        { errors.map(error => (
+                            <li
+                                className = 'new-image-error-li'
+                                key = { error }
+                            >
+                                { error }
+                            </li>
+                        ))}
+                    </ul>
+                </div>)}
+                <form
+                    className = 'new-image-form'
+                    onSubmit = { handleSubmit }
                 >
-                    Submit
-                </button>
-            </form>
+                    <input
+                        className = 'new-image-field'
+                        placeholder = 'Image URL'
+                        value = { imageUrl }
+                        onChange = { e => setImageUrl(e.target.value) }
+                    />
+                    <input
+                        className = 'new-image-field'
+                        placeholder = 'Content'
+                        value = { content }
+                        onChange = { e => setContent(e.target.value) }
+                    />
+                    <input
+                        className = 'new-image-field'
+                        placeholder = 'AlbumId Placeholder (change)'
+                        value = { albumId }
+                        type = 'number'
+                        onChange = { e => setAlbumId(e.target.value) }
+                    />
+                    <button
+                        className = 'new-image-button'
+                        type = 'submit'
+                    >
+                        Submit
+                    </button>
+                </form>
+            </div>
         </div>
     )
 }
