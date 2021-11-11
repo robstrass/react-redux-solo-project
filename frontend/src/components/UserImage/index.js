@@ -29,6 +29,10 @@ function UserImage() {
                     />
                 </div>
                 <div className = 'profile-single-img-content'>{image.content}</div>
+                <div className = 'profile-single-img-buttons'>
+                    <button>Edit</button>
+                    <button>Delete</button>
+                </div>
             </div>
         </div>
     )
