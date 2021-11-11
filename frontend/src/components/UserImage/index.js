@@ -4,6 +4,7 @@ import { useParams, Redirect, useHistory } from 'react-router-dom';
 
 import { loadOneImage } from '../../store/userImages';
 import DeleteImageModal from '../DeleteImage/DeleteImageModal';
+import EditImageModal from '../EditImage/EditImageModal';
 // import { Modal } from '../../context/Model';
 // import DeleteImage from '../DeleteImage';
 
@@ -43,19 +44,13 @@ function UserImage() {
                 </div>
                 <div className = 'profile-single-img-content'>{image.content}</div>
                 <div className = 'profile-single-img-buttons'>
-                    <button onClick = {() => setShowModal(true)}>Edit</button>
+                    <EditImageModal image = { image } />
                     {/* { showModal && (
                         <Modal onClose = {() => setShowModal(false)}>
                             <h2>hi</h2>
                         </Modal>
                     )} */}
                     <DeleteImageModal image = { image } />
-                    {/* <button onClick = {() => setShowModal(true)}>Delete</button>
-                    { showModal && (
-                        <Modal onClose = {() => setShowModal(false)}>
-                            <DeleteImage setShowModal = { setShowModal } image = { image } />
-                        </Modal>
-                    )} */}
                 </div>
             </div>
         </div>
