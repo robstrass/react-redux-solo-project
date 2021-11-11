@@ -50,4 +50,15 @@ router.post('/:id(\\d+)/images', imageValidation, asyncHandler(async (req, res) 
     }
 }));
 
+router.delete('/:userId(\\d+)/images/:id(\\d+)', asyncHandler(async (req, res) => {
+    const { userId, id } = req.params;
+
+    const image = await Image.findByPk(id);
+    const imageUserId = image.userId;
+    if (+userId === imageUserId) {
+        await image.destroy();
+        res.send(`Deleted image ${id}`);
+    }
+}));
+
 module.exports = router;
