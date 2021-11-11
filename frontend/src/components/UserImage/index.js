@@ -15,7 +15,6 @@ function UserImage() {
     const history = useHistory();
     const { id } = useParams();
     const image = useSelector((state) => (state.userImage.current));
-    // console.log('image', typeof image)
 
     useEffect(() => (
         dispatch(loadOneImage(id))
@@ -24,12 +23,8 @@ function UserImage() {
     const sessionUser = useSelector(state => state.session.user);
     if (!sessionUser) return <Redirect to = '/' />;
 
-    // doesnt work
-    if (image === {}) {
-        history.push('/profile');
-        return;
-    }
     console.log('single image', image)
+    // if (!image.id) return <Redirect to = '/profile' />
 
     return (
         <div className = 'profile-single-img-container'>
