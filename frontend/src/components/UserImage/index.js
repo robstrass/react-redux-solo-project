@@ -3,8 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams, Redirect, useHistory } from 'react-router-dom';
 
 import { loadOneImage } from '../../store/userImages';
-import { Modal } from '../../context/Model';
-import DeleteImage from '../DeleteImage';
+import DeleteImageModal from '../DeleteImage/DeleteImageModal';
+// import { Modal } from '../../context/Model';
+// import DeleteImage from '../DeleteImage';
 
 import './UserImage.css';
 
@@ -15,6 +16,7 @@ function UserImage() {
     const image = useSelector((state) => (state.userImage.current));
     console.log('image', typeof image)
     const [showModal, setShowModal] = useState(false);
+    const [showModal2, setShowModal2] = useState(false)
 
     useEffect(() => (
         dispatch(loadOneImage(id))
@@ -41,14 +43,19 @@ function UserImage() {
                 </div>
                 <div className = 'profile-single-img-content'>{image.content}</div>
                 <div className = 'profile-single-img-buttons'>
-                    <button>Edit</button>
-                    <button onClick = {() => setShowModal(true)}>Delete</button>
+                    <button onClick = {() => setShowModal(true)}>Edit</button>
+                    {/* { showModal && (
+                        <Modal onClose = {() => setShowModal(false)}>
+                            <h2>hi</h2>
+                        </Modal>
+                    )} */}
+                    <DeleteImageModal image = { image } />
+                    {/* <button onClick = {() => setShowModal(true)}>Delete</button>
                     { showModal && (
                         <Modal onClose = {() => setShowModal(false)}>
                             <DeleteImage setShowModal = { setShowModal } image = { image } />
-                            {/* <h2>fuck you</h2> */}
                         </Modal>
-                    )}
+                    )} */}
                 </div>
             </div>
         </div>

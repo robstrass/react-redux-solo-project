@@ -4,6 +4,7 @@ const LOAD_IMAGES = '/profile/loadImages';
 const LOAD_IMAGE = '/profile/loadOneImage';
 const ADD_IMAGE = '/profile/addImage';
 const REMOVE_IMAGE = '/profile/removeImage';
+const EDIT_IMAGE = '/profile/editImage';
 
 const loadAll = (images) => ({
     type: LOAD_IMAGES,
@@ -22,6 +23,11 @@ const addImage = (image) => ({
 
 const removeImage = (image) => ({
     type: REMOVE_IMAGE,
+    image
+});
+
+const editImage = (image) => ({
+    type: EDIT_IMAGE,
     image
 });
 
@@ -68,7 +74,21 @@ export const deleteImage = (image) => async (dispatch) => {
 
     if (response.ok) {
         dispatch(removeImage(image));
-        // return image;
+        return image;
+    }
+}
+
+export const editOneImage = (image) => async (dispatch) => {
+    const { id } = image;
+    const response = await csrfFetch(`/api/images/${id}`, {
+        method: 'PUT',
+        body: JSON.stringify(image)
+    });
+
+    if (response.ok) {
+        const image = await response.json();
+        dispatch(editImage(image));
+        return image;
     }
 }
 
@@ -97,6 +117,10 @@ const userImageReducer = (state = initialState, action) => {
             delete newState[action.image];
             delete newState.all[action.image.id]
             // newState.switch = !newState.switch
+            return newState;
+        case EDIT_IMAGE:
+            newState = { ...state };
+            newState.all[action.image.id] = action.image;
             return newState;
         default:
             return state;
