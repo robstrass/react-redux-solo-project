@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, Redirect } from 'react-router-dom';
+import { useParams, Redirect, useHistory } from 'react-router-dom';
 
 import { loadOneImage } from '../../store/userImages';
 import { Modal } from '../../context/Model';
+import DeleteImage from '../DeleteImage';
 
 import './UserImage.css';
 
 function UserImage() {
     const dispatch = useDispatch();
+    const history = useHistory();
     const { id } = useParams();
     const image = useSelector((state) => (state.userImage.current));
-
+    console.log('image', typeof image)
     const [showModal, setShowModal] = useState(false);
 
     useEffect(() => (
@@ -20,6 +22,12 @@ function UserImage() {
 
     const sessionUser = useSelector(state => state.session.user);
     if (!sessionUser) return <Redirect to = '/' />;
+
+    // doesnt work
+    if (image === {}) {
+        history.push('/profile');
+        return;
+    }
 
     return (
         <div className = 'profile-single-img-container'>
@@ -37,7 +45,8 @@ function UserImage() {
                     <button onClick = {() => setShowModal(true)}>Delete</button>
                     { showModal && (
                         <Modal onClose = {() => setShowModal(false)}>
-                            <h2>fuck you</h2>
+                            <DeleteImage setShowModal = { setShowModal } image = { image } />
+                            {/* <h2>fuck you</h2> */}
                         </Modal>
                     )}
                 </div>

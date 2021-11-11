@@ -3,6 +3,7 @@ import { csrfFetch } from "./csrf";
 const LOAD_IMAGES = '/profile/loadImages';
 const LOAD_IMAGE = '/profile/loadOneImage';
 const ADD_IMAGE = '/profile/addImage';
+const REMOVE_IMAGE = '/profile/removeImage';
 
 const loadAll = (images) => ({
     type: LOAD_IMAGES,
@@ -16,6 +17,11 @@ const loadOne = (image) => ({
 
 const addImage = (image) => ({
     type: ADD_IMAGE,
+    image
+});
+
+const removeImage = (image) => ({
+    type: REMOVE_IMAGE,
     image
 });
 
@@ -54,6 +60,18 @@ export const addOneImage = (image) => async (dispatch) => {
     }
 }
 
+export const deleteImage = (image) => async (dispatch) => {
+    const { userId, id } = image;
+    const response = await csrfFetch(`/api/profile/${userId}/images/${id}`, {
+        method: 'DELETE'
+    });
+
+    if (response.ok) {
+        dispatch(removeImage(image));
+        // return image;
+    }
+}
+
 const initialState = { all: {}, current: {} };
 
 const userImageReducer = (state = initialState, action) => {
@@ -72,7 +90,13 @@ const userImageReducer = (state = initialState, action) => {
             return newState;
         case ADD_IMAGE:
             newState = { ...state };
-            newState[action.image.id] = action.image;
+            newState.all[action.image.id] = action.image;
+            return newState;
+        case REMOVE_IMAGE:
+            newState = { ...state };
+            delete newState[action.image];
+            delete newState.all[action.image.id]
+            // newState.switch = !newState.switch
             return newState;
         default:
             return state;
