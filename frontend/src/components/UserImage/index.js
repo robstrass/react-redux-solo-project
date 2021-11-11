@@ -24,7 +24,7 @@ function UserImage() {
     if (!sessionUser) return <Redirect to = '/' />;
 
     console.log('single image', image)
-    // if (!image.id) return <Redirect to = '/profile' />
+    if (image.redirect) return <Redirect to = '/profile' />
 
     return (
         <div className = 'profile-single-img-container'>

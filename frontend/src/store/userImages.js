@@ -43,13 +43,17 @@ export const loadImages = (userId) => async (dispatch) => {
 }
 
 export const loadOneImage = (imageId) => async (dispatch) => {
-    const response = await csrfFetch(`/api/images/${imageId}`);
+    const response = await csrfFetch(`/api/images/${imageId}`)
+        .catch(() => {
+            dispatch(loadOne({redirect: true}));
+            return {};
+        })
 
     if (response.ok) {
         const image = await response.json();
         dispatch(loadOne(image))
         return image;
-    } 
+    }
 }
 
 export const addOneImage = (image) => async (dispatch) => {

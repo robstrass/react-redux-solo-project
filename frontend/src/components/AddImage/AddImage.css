@@ -57,9 +57,11 @@
 .new-image-field {
     box-sizing: border-box;
     margin: .25rem;
+    height: 2rem;
 }
 
 .new-image-button {
     box-sizing: border-box;
     margin: .25rem;
+    height: 2rem;
 }
