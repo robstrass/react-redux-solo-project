@@ -29,6 +29,18 @@ router.get('/:userId(\\d+)/images', restoreUser, asyncHandler(async (req, res) =
     res.json(images);
 }));
 
+router.get('/:userId(\\d+)/albums', asyncHandler(async (req, res) => {
+    const { userId } = req.params;
+    const albums = await Album.findAll({
+        where: {
+            userId,
+        },
+        include: { model: Image }
+    });
+    res.json(albums);
+}));
+
+// Add Image
 router.post('/:id(\\d+)/images', imageValidation, asyncHandler(async (req, res) => {
     const { id } = req.params;
     const { userId, albumId, imageUrl, content } = req.body;
@@ -49,6 +61,7 @@ router.post('/:id(\\d+)/images', imageValidation, asyncHandler(async (req, res) 
     }
 }));
 
+// Delete Image
 router.delete('/:userId(\\d+)/images/:id(\\d+)', asyncHandler(async (req, res) => {
     const { userId, id } = req.params;
 
