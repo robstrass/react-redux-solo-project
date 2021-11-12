@@ -2,10 +2,17 @@ import { csrfFetch } from "./csrf";
 
 const LOAD_ALBUMS = '/albums/loadAlbums';
 
+const LOAD_ALBUM = 'albums/loadAlbum';
+
 const loadAlbums = (albums) => ({
     type: LOAD_ALBUMS,
     albums
-})
+});
+
+const loadAlbum = (album) => ({
+    type: LOAD_ALBUM,
+    album
+});
 
 // action creators
 export const allAlbums = (userId) => async (dispatch) => {
@@ -16,6 +23,20 @@ export const allAlbums = (userId) => async (dispatch) => {
         dispatch(loadAlbums(albums));
         return albums;
     }
+}
+
+export const loadOneAlbum = (albumId) => async (dispatch) => {
+    const response = await csrfFetch(`/api/albums/${albumId}`)
+        .catch(() => {
+            dispatch(loadAlbum( {redirect: true} ));
+            return {};
+        })
+
+        if (response.ok) {
+            const album = await response.json();
+            dispatch(loadAlbum(album));
+            return album;
+        }
 }
 
 const initialState = { all: {}, current: {} };
@@ -29,6 +50,10 @@ const albumsReducer = (state = initialState, action) => {
                 newState.current = {};
                 newState.all[album.id] = album;
             });
+            return newState;
+        case LOAD_ALBUM:
+            newState = { ...state };
+            newState.current = action.album;
             return newState;
         default:
             return state;
