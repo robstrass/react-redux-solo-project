@@ -7,7 +7,9 @@ function DeletePhotoModal({ image }) {
 
     return (
         <>
-            <button onClick = {() => setShowModal(true)}>
+            <button
+                className = 'profile-image-delete-button'
+                onClick = {() => setShowModal(true)}>
                 Delete
             </button>
             {showModal && (

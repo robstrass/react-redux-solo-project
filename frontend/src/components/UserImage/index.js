@@ -1,18 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, Redirect, useHistory } from 'react-router-dom';
 
 import { loadOneImage } from '../../store/userImages';
 import DeleteImageModal from '../DeleteImage/DeleteImageModal';
 import EditImageModal from '../EditImage/EditImageModal';
-// import { Modal } from '../../context/Model';
-// import DeleteImage from '../DeleteImage';
 
 import './UserImage.css';
 
 function UserImage() {
     const dispatch = useDispatch();
-    const history = useHistory();
     const { id } = useParams();
     const image = useSelector((state) => (state.userImage.current));
 
@@ -37,9 +34,15 @@ function UserImage() {
                     />
                 </div>
                 <div className = 'profile-single-img-content'>{image.content}</div>
-                <div className = 'profile-single-img-buttons'>
-                    <EditImageModal image = { image } />
-                    <DeleteImageModal image = { image } />
+                <div className = 'profile-img-button-container'>
+                    <div className = 'profile-single-img-buttons'>
+                        <EditImageModal
+                            image = { image }
+                        />
+                        <DeleteImageModal
+                            image = { image }
+                        />
+                    </div>
                 </div>
             </div>
         </div>

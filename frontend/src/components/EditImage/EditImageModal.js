@@ -7,7 +7,9 @@ function EditImageModal({ image }) {
 
     return (
         <>
-            <button onClick = {() => setShowModal(true)}>
+            <button
+                className = 'profile-image-edit-button'
+                onClick = {() => setShowModal(true)}>
                 Edit
             </button>
             {showModal && (

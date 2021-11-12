@@ -21,6 +21,7 @@
 #new-image-p {
     box-sizing: border-box;
     margin: .5rem;
+    font-size: 1.25rem;
 }
 
 .new-image-errors-div {
@@ -57,11 +58,17 @@
 .new-image-field {
     box-sizing: border-box;
     margin: .25rem;
-    height: 2rem;
+    height: 2.5rem;
+    font-size: 1rem;
 }
 
 .new-image-button {
     box-sizing: border-box;
     margin: .25rem;
-    height: 2rem;
+    height: 2.5rem;
+    border: 1px;
+    border-radius: 4px;
+    font-size: 1rem;
+    color: white;
+    background-color: #5AA9E6;
 }

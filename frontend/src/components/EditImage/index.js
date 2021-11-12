@@ -55,13 +55,13 @@ function EditImage({ image }) {
                         onChange = { e => setAlbumId(e.target.value) }
                     />
                     <button
-                        className = 'edit-image-submit'
+                        className = 'edit-image-field edit-image-submit'
                         type = 'submit'
                     >
                         Edit
                     </button>
                     <button
-                        className = 'edit-image-cancel'
+                        className = 'edit-image-field edit-image-cancel'
                     >
                         Cancel
                     </button>

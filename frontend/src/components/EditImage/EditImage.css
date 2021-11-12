@@ -1,0 +1,78 @@
+.edit-image-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border: 1px;
+    border-radius: 8px;
+    width: 25rem;
+    height: fit-content
+}
+
+.edit-image-form-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    margin: 1rem;
+    width: 90%;
+}
+
+#edit-image-p {
+    box-sizing: border-box;
+    margin: 0.5rem;
+    font-size: 1.25rem;
+}
+
+.edit-image-form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+.edit-image-field {
+    box-sizing: border-box;
+    margin: .5rem;
+    height: 2.5rem;
+    font-size: 1rem;
+}
+
+.edit-image-submit {
+    border: 1px;
+    border-radius: 4px;
+    color: white;
+    background-color: #5AA9E6;
+    transition: all 0.4s ease;
+}
+
+.edit-image-submit:hover {
+    transform: scale(1.025);
+}
+
+.edit-image-cancel {
+    border: 1px;
+    border-radius: 4px;
+    color: white;
+    background-color: #F24236;
+    transition: all 0.4s ease;
+}
+
+.edit-image-cancel:hover {
+    transform: scale(1.025);
+}
+
+.profile-image-edit-button {
+   height: 2.5rem;
+   width: 7rem;
+   border: 1px;
+   border-radius: 4px;
+   background-color: #5AA9E6;
+   color: white;
+   font-size: 1rem;
+   transition: all 0.4s ease;
+}
+
+.profile-image-edit-button:hover {
+    transform: scale(1.05);
+}
