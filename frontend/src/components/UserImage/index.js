@@ -20,7 +20,6 @@ function UserImage() {
     const sessionUser = useSelector(state => state.session.user);
     if (!sessionUser) return <Redirect to = '/' />;
 
-    console.log('single image', image)
     if (image.redirect) return <Redirect to = '/profile' />
 
     return (

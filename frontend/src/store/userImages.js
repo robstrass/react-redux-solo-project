@@ -84,7 +84,6 @@ export const deleteImage = (image) => async (dispatch) => {
 
 export const editOneImage = (image) => async (dispatch) => {
     const { id } = image;
-    console.log('id', image)
     const response = await csrfFetch(`/api/images/${id}`, {
         method: 'PUT',
         body: JSON.stringify(image)
