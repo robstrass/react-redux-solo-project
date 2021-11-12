@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, Redirect, useHistory } from 'react-router-dom';
+import { useParams, Redirect } from 'react-router-dom';
 
 import { loadOneImage } from '../../store/userImages';
 import DeleteImageModal from '../DeleteImage/DeleteImageModal';

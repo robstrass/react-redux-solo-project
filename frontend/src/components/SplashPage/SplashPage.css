@@ -1,0 +1,51 @@
+.splash-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url(https://res.cloudinary.com/depdd11lz/image/upload/v1636678657/Driver-audi-fall_s9ehvf.jpg);
+}
+
+.splash-content-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* background-color: #FFC857; */
+    width: 60%
+}
+
+.splash-h1 {
+    color: white;
+    font-size: 3rem;
+    margin: 0.5rem;
+}
+
+.splash-h3 {
+    color: white;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.splash-signup-link {
+    box-sizing: border-box;
+    margin: 1rem;
+    border: 1px;
+    border-radius: 4px;
+    background-color: #FFC857;
+    padding: 1rem;
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    transition: all 0.4s ease;
+}
+
+.splash-signup-link:hover {
+    transform: scale(1.05);
+}

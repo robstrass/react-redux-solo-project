@@ -122,10 +122,15 @@ li {
 .login {
     color: white;
     margin-right: 1rem;
+    border: 1px white solid;
+    border-radius: 4px;
+    padding: 7.5px 15px;
 }
 
 .login:hover {
-    transform: scale(1.1)
+    transform: scale(1.1);
+    color: black;
+    border: 1px black solid;
 }
 
 .signup {

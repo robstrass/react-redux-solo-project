@@ -25,6 +25,31 @@
     font-size: 1.25rem;
 }
 
+.edit-image-errors-div {
+    width: 75%;
+}
+
+.edit-image-errors-ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f24236;
+    box-sizing: border-box;
+    margin-bottom: 1rem;
+    border: 1px;
+    border-radius: 8px;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+}
+
+.edit-image-error-li {
+    text-align: center;
+    box-sizing: border-box;
+    margin: .5rem;
+}
+
 .edit-image-form {
     display: flex;
     flex-direction: column;
