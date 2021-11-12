@@ -29,6 +29,7 @@ router.get('/:userId(\\d+)/images', restoreUser, asyncHandler(async (req, res) =
     res.json(images);
 }));
 
+// Get all Albums
 router.get('/:userId(\\d+)/albums', asyncHandler(async (req, res) => {
     const { userId } = req.params;
     const albums = await Album.findAll({

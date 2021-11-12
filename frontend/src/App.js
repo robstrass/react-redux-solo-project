@@ -10,6 +10,7 @@ import ImageDetail from './components/ImageDetail';
 import UserProfile from './components/UserProfile';
 import UserImage from './components/UserImage';
 import AddImage from './components/AddImage';
+import AllAlbums from './components/AllAlbums';
 import * as sessionActions from './store/session';
 
 function App() {
@@ -48,6 +49,9 @@ function App() {
         </Route>
         <Route path = '/upload'>
           <AddImage />
+        </Route>
+        <Route exact path = '/albums'>
+          <AllAlbums />
         </Route>
       </Switch>
     )}

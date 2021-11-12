@@ -4,12 +4,14 @@ import thunk from 'redux-thunk';
 import sessionReducer from './session';
 import imageReducer from './image';
 import userImageReducer from './userImages';
+import albumsReducer from './albums';
 
 // key is what's on state
 const rootReducer = combineReducers({
     session: sessionReducer,
     image: imageReducer,
     userImage: userImageReducer,
+    albums: albumsReducer,
 });
 
 let enhancer;
