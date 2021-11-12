@@ -20,7 +20,6 @@ const imageValidation = [
 // All of a User's Images
 router.get('/:userId(\\d+)/images', restoreUser, asyncHandler(async (req, res) => {
     const { userId } = req.params;
-    console.log('userId, ', userId)
     const images = await Image.findAll({
         where: {
             userId,

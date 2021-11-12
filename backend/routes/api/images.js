@@ -29,7 +29,7 @@ router.get('/', asyncHandler(async (req, res) => {
 router.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
     const imageId = req.params.id;
     const image = await Image.findByPk(imageId);
-    console.log('back img', image)
+
     if (image) {
         res.json(image);
     } else {

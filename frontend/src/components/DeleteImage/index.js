@@ -9,7 +9,6 @@ import './DeleteImage.css';
 function DeleteImage({ image, setShowModal }) {
     const dispatch = useDispatch();
     const history = useHistory();
-    // console.log('image', image)
 
     const deleteSingleImage = (e) => {
         e.preventDefault();

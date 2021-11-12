@@ -10,7 +10,6 @@ function ImageDetail() {
     const dispatch = useDispatch();
     const { id } = useParams();
     const image = useSelector((state) => (state.image.current));
-    console.log('image, ', image)
 
     useEffect(() => (
         dispatch(loadOneImage(id))
