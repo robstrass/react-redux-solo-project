@@ -8,7 +8,7 @@ function AllAlbums() {
     const dispatch = useDispatch();
     const albums = useSelector((state) => Object.values(state.albums.all));
     const sessionUser = useSelector(state => state.session.user);
-    console.log('albums', albums);
+    console.log('albums', albums[0]);
     let userId;
     if (sessionUser) {
         userId = sessionUser.id;
@@ -22,13 +22,16 @@ function AllAlbums() {
 
     return (
         <div className = 'all-albums-container'>
+            <h1 className = 'all-albums-header'>Your Albums</h1>
             { albums.length > 0 ? albums.map(album => (
                 <NavLink
                     className = 'all-albums-nav-wrapper'
                     key = { album.id }
                     to = {`/albums/${album.id}`}
+                    // styles = { album.Image > 0 ? {backgroundImage: `url(${album.Image[0].imageUrl})`} : null }
                 >
-                    <div>{album.title}</div>
+                    <div className = 'all-albums-field'>{album.title}</div>
+                    <div className = 'all-albums-field'>{album.Images.length} {album.Images.length < 2 ? <span>Photo</span> : <span>Photos</span>}</div>
                 </NavLink>
             )): null}
         </div>
