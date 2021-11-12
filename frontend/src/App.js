@@ -11,6 +11,7 @@ import UserProfile from './components/UserProfile';
 import UserImage from './components/UserImage';
 import AddImage from './components/AddImage';
 import AllAlbums from './components/AllAlbums';
+import SingleAlbum from './components/SingleAlbum';
 import * as sessionActions from './store/session';
 
 function App() {
@@ -23,38 +24,41 @@ function App() {
 
   return (
     <>
-    <Navigation isLoaded = { isLoaded } />
-    {isLoaded && (
-      <Switch>
-        <Route exact path = '/'>
-          <SplashPage />
-        </Route>
-        <Route path = '/homepage'>
-          <HomePage />
-        </Route>
-        <Route path = '/login'>
-          <LoginFormPage />
-        </Route>
-        <Route path = '/signup'>
-          <SignupFormPage />
-        </Route>
-        <Route path = '/images/:id'>
-          <ImageDetail />
-        </Route>
-        <Route exact path = '/profile'>
-          <UserProfile />
-        </Route>
-        <Route path = '/profile/images/:id'>
-          <UserImage />
-        </Route>
-        <Route path = '/upload'>
-          <AddImage />
-        </Route>
-        <Route exact path = '/albums'>
-          <AllAlbums />
-        </Route>
-      </Switch>
-    )}
+      <Navigation isLoaded = { isLoaded } />
+      {isLoaded && (
+        <Switch>
+          <Route exact path = '/'>
+            <SplashPage />
+          </Route>
+          <Route path = '/homepage'>
+            <HomePage />
+          </Route>
+          <Route path = '/login'>
+            <LoginFormPage />
+          </Route>
+          <Route path = '/signup'>
+            <SignupFormPage />
+          </Route>
+          <Route path = '/images/:id'>
+            <ImageDetail />
+          </Route>
+          <Route exact path = '/profile'>
+            <UserProfile />
+          </Route>
+          <Route path = '/profile/images/:id'>
+            <UserImage />
+          </Route>
+          <Route path = '/upload'>
+            <AddImage />
+          </Route>
+          <Route exact path = '/albums'>
+            <AllAlbums />
+          </Route>
+          <Route path = '/albums/:id'>
+            <SingleAlbum />
+          </Route>
+        </Switch>
+      )}
     </>
   );
 }

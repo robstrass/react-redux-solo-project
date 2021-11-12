@@ -8,7 +8,7 @@ function AllAlbums() {
     const dispatch = useDispatch();
     const albums = useSelector((state) => Object.values(state.albums.all));
     const sessionUser = useSelector(state => state.session.user);
-    console.log('albums', albums[0]);
+
     let userId;
     if (sessionUser) {
         userId = sessionUser.id;
