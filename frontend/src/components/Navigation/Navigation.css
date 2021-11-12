@@ -17,6 +17,11 @@ li {
     margin: 0.5rem;
     text-decoration: none;
     color: black;
+    transition: all 0.4s ease;
+}
+
+.navbar-upload-button:hover {
+    transform: scale(1.1);
 }
 
 .nav-bar {
@@ -54,7 +59,7 @@ li {
 }
 
 .profile-button:hover {
-    transform: scale(1.1);
+    transform: scale(1.15);
 }
 
 .profile-container {
@@ -64,11 +69,6 @@ li {
     border: 1px;
     border-radius: 4px;
     padding: .25rem;
-    transition: all 0.4s ease;
-}
-
-.profile-container:hover {
-    transform: scale(1.1);
 }
 
 .profile-dropdown {
@@ -134,7 +134,7 @@ li {
 }
 
 .signup {
-    border: 3px;
+    border: 1px solid white;
     background-color: white;
     color: black;
     border-radius: 3px;
