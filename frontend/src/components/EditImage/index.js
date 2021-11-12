@@ -6,7 +6,7 @@ import { editOneImage } from '../../store/userImages';
 
 import './EditImage.css';
 
-function EditImage({ image }) {
+function EditImage({ image, setShowModal }) {
     const dispatch = useDispatch();
     const history = useHistory();
 
@@ -15,10 +15,24 @@ function EditImage({ image }) {
     // const [imageUrl, setImageUrl] = useState('');
     const [content, setContent] = useState(image.content);
     const [albumId, setAlbumId] = useState();
+    const [errors, setErrors] = useState([]);
     console.log('edit image', image)
+
+    const validate = () => {
+        const validationErrors = [];
+        if (!content) validationErrors.push('Please provide content for your image.');
+
+        return validationErrors;
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        const errors = validate();
+
+        if (errors && errors.length > 0) {
+            return setErrors(errors);
+        }
 
         const editedImage = {
             id: image.id,
@@ -38,6 +52,20 @@ function EditImage({ image }) {
         <div className = 'edit-image-form-container'>
             <div className = 'edit-image-form-div'>
                 <p id = 'edit-image-p'>Edit Image</p>
+                {errors.length > 0 && (
+                    <div className = 'edit-image-errors-div'>
+                        <ul className = 'edit-image-errors-ul'>
+                            { errors.map(error => (
+                                <li
+                                    className = 'edit-image-error-li'
+                                    key = { error }
+                                >
+                                    {error}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                )}
                 <form
                     className = 'edit-image-form'
                     onSubmit = { handleSubmit }
@@ -61,6 +89,7 @@ function EditImage({ image }) {
                         Edit
                     </button>
                     <button
+                        onClick = {() => setShowModal(false)}
                         className = 'edit-image-field edit-image-cancel'
                     >
                         Cancel

@@ -1,5 +1,6 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
+const { check, validationResult } = require('express-validator');
 
 const { Image } = require('../../db/models');
 
@@ -11,6 +12,12 @@ const imageNotFoundError = productId => {
     err.status = 404;
     throw err;
 };
+
+const editValidation = [
+    check('content')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide Content for your image.')
+]
 
 // Get all images
 router.get('/', asyncHandler(async (req, res) => {
@@ -31,13 +38,14 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
 }));
 
 // Edit Image
-router.put('/:id(\\d+)', asyncHandler(async (req, res, next) => {
+router.put('/:id(\\d+)', editValidation, asyncHandler(async (req, res, next) => {
     const imageId = req.params.id;
     const { userId, albumId, imageUrl, content } = req.body;
     const image = await Image.findByPk(imageId);
     const imageUserId = image.userId;
-    console.log('image', userId, imageUserId)
-    if (image && userId === imageUserId) {
+    const editErrors = validationResult(req);
+
+    if (image && userId === imageUserId && editErrors.isEmpty()) {
         await image.update({
             userId,
             albumId,
@@ -46,7 +54,8 @@ router.put('/:id(\\d+)', asyncHandler(async (req, res, next) => {
         });
         res.json(image);
     } else {
-        next(imageNotFoundError(imageId))
+        let errors = editErrors.array().map(error => error.msg);
+        res.json({ errors });
     }
 }));
 
