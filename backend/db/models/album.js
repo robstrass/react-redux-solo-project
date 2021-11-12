@@ -8,11 +8,7 @@ module.exports = (sequelize, DataTypes) => {
     Album.belongsTo(models.User, {
       foreignKey: 'userId',
     });
-    Album.hasMany(models.Image, {
-      foreignKey: 'albumId',
-      onDelete: 'cascade',
-      hooks: true
-    });
+    Album.hasMany(models.Image, { foreignKey: 'albumId' });
   };
   return Album;
 };

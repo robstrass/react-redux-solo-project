@@ -1,0 +1,78 @@
+.confirm-image-delete-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border: 1px;
+    border-radius: 8px;
+    width: 25rem;
+    height: 10rem;
+}
+
+.confirm-image-delete-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+}
+
+.confirm-delete-image-text {
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.confirm-image-delete-buttons {
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    margin: 1rem;
+    width: 75%;
+}
+
+.delete-image-confirm {
+    box-sizing: border-box;
+    border: 1px;
+    border-radius: 4px;
+    background-color: #F24236;
+    color: white;
+    font-size: 1rem;
+    height: 2rem;
+    width: 6rem;
+    transition: all 0.4s ease;
+}
+
+.delete-image-confirm:hover {
+    transform: scale(1.1);
+}
+
+.cancel-delete-image {
+    box-sizing: border-box;
+    border: 1px;
+    border-radius: 4px;
+    background-color: #5AA9E6;
+    color: white;
+    font-size: 1rem;
+    height: 2rem;
+    width: 6rem;
+    transition: all 0.4s ease;
+}
+
+.cancel-delete-image:hover {
+    transform: scale(1.1);
+}
+
+.profile-image-delete-button {
+    height: 2.5rem;
+    width: 7rem;
+    border: 1px;
+    border-radius: 4px;
+    background-color: #F24236;
+    color: white;
+    font-size: 1rem;
+    transition: all 0.4s ease;
+}
+
+.profile-image-delete-button:hover {
+    transform: scale(1.05);
+}

@@ -8,6 +8,7 @@
 .profile-single-div-style {
     display: flex;
     flex-direction: column;
+    /* align-items: center; */
     box-sizing: border-box;
     width: 75%;
     background-color: white;
@@ -35,4 +36,26 @@
     left: -9999px;
     width: 100%;
     height: auto;
+}
+
+.profile-single-img-content {
+    display: flex;
+    box-sizing: border-box;
+    justify-content: center;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+}
+
+.profile-img-button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.profile-single-img-buttons {
+    display: flex;
+    justify-content: space-around;
+    box-sizing: border-box;
+    margin: 1rem;
+    width: 75%;
+    background-color: lightcyan;
 }

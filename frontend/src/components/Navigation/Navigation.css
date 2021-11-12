@@ -7,6 +7,18 @@ li {
     margin-left: 1rem;
 }
 
+.nav-authed-user-buttons {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-upload-button {
+    box-sizing: border-box;
+    margin: 0.5rem;
+    text-decoration: none;
+    color: black;
+}
+
 .nav-bar {
     font-family: Proxima Nova,helvetica neue,helvetica,arial,sans-serif;
     display: flex;
@@ -38,6 +50,7 @@ li {
 
 .profile-button {
     transition: all 0.4s ease;
+    margin: 0.5rem;
 }
 
 .profile-button:hover {

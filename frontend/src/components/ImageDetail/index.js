@@ -19,6 +19,8 @@ function ImageDetail() {
     const sessionUser = useSelector(state => state.session.user);
     if (!sessionUser) return <Redirect to = '/' />;
 
+    if (image.redirect) return <Redirect to = '/profile' />
+
     return (
         <div className = 'homepage-single-img-container'>
             {/* <h2>Youre here</h2> */}
@@ -30,7 +32,7 @@ function ImageDetail() {
                         alt = 'car'
                     />
                 </div>
-                <div className = 'homepage-single-img-content'> Author says: {image.content}</div>
+                <div className = 'homepage-single-img-content'>{image.content}</div>
             </div>
         </div>
     )

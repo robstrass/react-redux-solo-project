@@ -22,7 +22,7 @@ router.get('/', asyncHandler(async (req, res) => {
 router.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
     const imageId = req.params.id;
     const image = await Image.findByPk(imageId);
-
+    console.log('back img', image)
     if (image) {
         res.json(image);
     } else {
@@ -30,7 +30,24 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
     }
 }));
 
-// Get all user's images
-
+// Edit Image
+router.put('/:id(\\d+)', asyncHandler(async (req, res, next) => {
+    const imageId = req.params.id;
+    const { userId, albumId, imageUrl, content } = req.body;
+    const image = await Image.findByPk(imageId);
+    const imageUserId = image.userId;
+    console.log('image', userId, imageUserId)
+    if (image && userId === imageUserId) {
+        await image.update({
+            userId,
+            albumId,
+            imageUrl,
+            content
+        });
+        res.json(image);
+    } else {
+        next(imageNotFoundError(imageId))
+    }
+}));
 
 module.exports = router;

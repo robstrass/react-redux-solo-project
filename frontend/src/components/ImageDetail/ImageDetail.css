@@ -43,5 +43,7 @@
 
 .homepage-single-img-content {
     display: flex;
+    box-sizing: border-box;
     justify-content: center;
+    margin-bottom: 1rem;
 }

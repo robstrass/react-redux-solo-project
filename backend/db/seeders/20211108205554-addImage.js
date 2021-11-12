@@ -31,6 +31,20 @@ module.exports = {
        content: 'Blobeye',
        createdAt: new Date(),
        updatedAt: new Date()
+     },
+     {
+       userId: 2,
+       imageUrl: 'https://res.cloudinary.com/depdd11lz/image/upload/v1636565772/Drivr-snow-subie_d3pu22.jpg',
+       content: 'Moody Subie',
+       createdAt: new Date(),
+       updatedAt: new Date()
+     },
+     {
+       userId: 3,
+       imageUrl: 'https://res.cloudinary.com/depdd11lz/image/upload/v1636565741/Drivr-98subie_e9vfc6.jpg',
+       content: 'Offroading',
+       createdAt: new Date(),
+       updatedAt: new Date()
      }
    ], {});
   },
