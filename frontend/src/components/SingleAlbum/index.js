@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, Redirect } from 'react-router-dom';
+import { useParams, Redirect, NavLink } from 'react-router-dom';
 
 import { loadOneAlbum } from '../../store/albums';
 
@@ -29,9 +29,10 @@ function SingleAlbum() {
             </div>
             <div className = 'single-album-container'>
                 { album.Images?.length > 0 ? album.Images.map(image => (
-                    <div
+                    <NavLink
                         key = { image.id }
                         className = 'single-album-img-nav'
+                        to = { `/profile/images/${image.id}` }
                     >
                         <div className = 'single-album-img-div'>
                             <img
@@ -41,7 +42,7 @@ function SingleAlbum() {
                             />
                         </div>
                         {/* <div>hi</div> */}
-                    </div>
+                    </NavLink>
                 )) : null }
             </div>
         </>

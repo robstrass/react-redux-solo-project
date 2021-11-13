@@ -23,7 +23,7 @@ function HomePage() {
                 <NavLink
                     className = 'homepage-nav-wrapper'
                     key = {image.id}
-                    to = {`/images/${image.id}`}
+                    to = {`/profile/images/${image.id}`}
                 >
                     <div className = 'homepage-indiv-image'>
                         <img

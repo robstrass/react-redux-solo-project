@@ -13,7 +13,7 @@ function EditImage({ image, setShowModal }) {
     const sessionUser = useSelector(state => state.session.user);
     const { id } = sessionUser;
     const [content, setContent] = useState(image.content);
-    const [albumId, setAlbumId] = useState();
+    const [albumId, setAlbumId] = useState(null);
     const [errors, setErrors] = useState([]);
 
     const validate = () => {
