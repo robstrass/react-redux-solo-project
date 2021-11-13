@@ -15,20 +15,36 @@
 .all-albums-div {
     display: flex;
     flex-direction: column;
+    align-items: center;
     box-sizing: border-box;
-    background-color: white;
-    padding: 1rem;
+    width: 75%;
 }
 
 .all-albums-nav-wrapper {
+    display: flex;
+    justify-content: center;
     box-sizing: border-box;
-    height: 4rem;
+    width: 100%;
+    text-decoration: none;
+    color: black;
+    transition: all 0.4s ease;
+}
+
+.all-albums-nav-wrapper:hover {
+    transform: scale(1.05)
 }
 
 .all-albums-style-div {
     display: flex;
+    justify-content: space-around;
     box-sizing: border-box;
     margin: 1rem;
+    height: 15rem;
+    background-color: white;
+    border: 1px;
+    border-radius: 8px;
+    padding: 2rem;
+    width: 100%;
 }
 
 .album-list-img-div {
@@ -49,5 +65,10 @@
 }
 
 .all-albums-field {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
     font-size: 2rem;
+    margin-left: 1rem;
 }

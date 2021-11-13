@@ -49,7 +49,7 @@ function AllAlbums() {
                             >
                                 {album.Images.length}
                                 {album.Images.length < 2 && album.Images.length > 0
-                                    ? <span>Photo</span> : <span>Photos</span>}
+                                    ? ' photo' : ' photos'}
                             </div>
                         </div>
                     </NavLink>
