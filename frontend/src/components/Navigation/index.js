@@ -12,7 +12,7 @@ function Navigation({ isLoaded }) {
     if (sessionUser) {
         sessionLinks = (
             <div className = 'nav-authed-user-buttons'>
-                <NavLink className = 'navbar-upload-button' to = '/upload'>
+                <NavLink className = 'navbar-upload-button' to = 'profile/images/upload'>
                     <i className = "fas fa-cloud-upload-alt fa-2x"></i>
                 </NavLink>
                 <NavLink className = 'navbar-albums-button' to = '/albums'>

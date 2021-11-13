@@ -18,7 +18,7 @@ function ImageDetail() {
     const sessionUser = useSelector(state => state.session.user);
     if (!sessionUser) return <Redirect to = '/' />;
 
-    if (image.redirect) return <Redirect to = '/profile' />
+    if (image.redirect) return <Redirect to = '/homepage' />
 
     return (
         <div className = 'homepage-single-img-container'>

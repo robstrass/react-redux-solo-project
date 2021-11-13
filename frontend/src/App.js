@@ -31,7 +31,7 @@ function App() {
           <Route exact path = '/'>
             <SplashPage />
           </Route>
-          <Route path = '/homepage'>
+          <Route exact path = '/homepage'>
             <HomePage />
           </Route>
           <Route path = '/login'>
@@ -40,26 +40,26 @@ function App() {
           <Route path = '/signup'>
             <SignupFormPage />
           </Route>
-          <Route path = '/profile/images/:id'>
+          <Route path = '/homepage/images/:id'>
             <ImageDetail />
           </Route>
           <Route exact path = '/profile'>
             <UserProfile />
           </Route>
+          <Route path = 'profile/images/upload'>
+            <AddImage />
+          </Route>
           <Route path = '/profile/images/:id'>
             <UserImage />
-          </Route>
-          <Route path = '/upload'>
-            <AddImage />
           </Route>
           <Route exact path = '/albums'>
             <AllAlbums />
           </Route>
-          <Route path = '/albums/:id'>
-            <SingleAlbum />
-          </Route>
           <Route path = '/albums/add'>
             <AddAlbum />
+          </Route>
+          <Route path = '/albums/:id'>
+            <SingleAlbum />
           </Route>
           <Route>
             <Redirect to = '/homepage' />
