@@ -24,9 +24,12 @@ function AllAlbums() {
 
     return (
         <div className = 'all-albums-container'>
-            <h1 className = 'all-albums-header'>
-                { sessionUser.username }'s Albums
-            </h1>
+            <div className = 'all-albums-title'>
+                <h1 className = 'all-albums-header'>
+                    { sessionUser.username }'s Albums
+                </h1>
+                <button className = 'new-album'>New Album</button>
+            </div>
             <div className = 'all-albums-div'>
                 { albums.length > 0 ? albums.map(album => (
                     <div
@@ -48,7 +51,7 @@ function AllAlbums() {
                                 </div>
                                 <div className = 'all-albums-field'>{album.title}</div>
                                 <div
-                                    className = 'all-albums-field'
+                                    className = 'all-albums-field photo-count'
                                 >
                                     {album.Images.length}
                                     {album.Images.length < 2 && album.Images.length > 0

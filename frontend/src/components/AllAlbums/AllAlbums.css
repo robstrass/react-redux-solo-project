@@ -4,13 +4,31 @@
     align-items: center;
 }
 
+.all-albums-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .all-albums-header {
     color: white;
 }
 
-/* .all-albums-div {
-    width: 50%
-} */
+.new-album {
+    box-sizing: border-box;
+    height: 2.5rem;
+    width: 6rem;
+    background-color: #5AA9E6;
+    color: white;
+    border: 1px;
+    border-radius: 4px;
+    transition: all 0.4s ease;
+    font-size: 1rem;
+}
+
+.new-album:hover {
+    transform: scale(1.1);
+}
 
 .all-albums-div {
     display: flex;
@@ -75,4 +93,8 @@
     box-sizing: border-box;
     font-size: 2rem;
     margin-left: 1rem;
+}
+
+.photo-count {
+    font-size: 1rem;
 }

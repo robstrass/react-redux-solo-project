@@ -15,9 +15,11 @@
     height: 2rem;
     width: 5rem;
     background-color: #F24236;
+    color: white;
     border: 1px;
     border-radius: 4px;
     transition: all 0.4s ease;
+    font-size: 1rem;
 }
 
 .single-album-delete:hover {

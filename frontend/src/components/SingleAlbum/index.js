@@ -27,7 +27,7 @@ function SingleAlbum() {
                     { album.title }
                 </h1>
                 <button className = 'single-album-delete'>
-                    Remove Album
+                    Delete
                 </button>
             </div>
             <div className = 'single-album-container'>
