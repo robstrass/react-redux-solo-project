@@ -17,6 +17,13 @@ const imageValidation = [
         .withMessage('Please give a description of your photo.')
 ]
 
+
+const albumValidation = [
+    check('title')
+        .exists({ checkFalsy: true })
+        .withMessage('Please give your album a name.'),
+]
+
 // All of a User's Images
 router.get('/:userId(\\d+)/images', restoreUser, asyncHandler(async (req, res) => {
     const { userId } = req.params;
@@ -73,5 +80,26 @@ router.delete('/:userId(\\d+)/images/:id(\\d+)', asyncHandler(async (req, res) =
         res.send(`Deleted image ${id}`);
     }
 }));
+
+// Post album
+router.post('/:id(\\d+)/albums', albumValidation, asyncHandler(async (req, res) => {
+    const { id } = req.params;
+    const { userId, title } = req.body;
+    const albumErrors = validationResult(req);
+
+    if (+id === +userId && albumErrors.isEmpty()) {
+        const newAlbum = await Album.build({
+            userId,
+            title
+        });
+        console.log('newAlbum', newAlbum)
+        await newAlbum.save();
+        res.json(newAlbum)
+    } else {
+        let errors = albumErrors.array().map(error => error.msg);
+        res.json({ errors });
+    }
+}));
+
 
 module.exports = router;
