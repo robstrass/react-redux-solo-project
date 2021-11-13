@@ -20,6 +20,11 @@
     width: 75%;
 }
 
+.all-albums-nav-container {
+    display: flex;
+    width: 100%;
+}
+
 .all-albums-nav-wrapper {
     display: flex;
     justify-content: center;
@@ -31,7 +36,7 @@
 }
 
 .all-albums-nav-wrapper:hover {
-    transform: scale(1.05)
+    transform: scale(1.025)
 }
 
 .all-albums-style-div {
@@ -43,7 +48,6 @@
     background-color: white;
     border: 1px;
     border-radius: 8px;
-    padding: 2rem;
     width: 100%;
 }
 
@@ -71,4 +75,18 @@
     box-sizing: border-box;
     font-size: 2rem;
     margin-left: 1rem;
+}
+
+.all-albums-delete-div {
+    display: flex;
+    align-items: center;
+}
+
+.all-albums-delete {
+    box-sizing: border-box;
+    height: 2rem;
+    width: 5rem;
+    background-color: #F24236;
+    border: 1px;
+    border-radius: 4px;
 }

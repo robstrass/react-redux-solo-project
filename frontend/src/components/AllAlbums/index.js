@@ -16,10 +16,6 @@ function AllAlbums() {
         userId = sessionUser.id;
     }
 
-    if (albums[0] && albums[0].Images.length > 0) {
-        console.log('here', albums[0].Images[0].imageUrl)
-    }
-
     useEffect(() => {
         dispatch(allAlbums(userId))
     }, [dispatch, userId]);
@@ -28,31 +24,44 @@ function AllAlbums() {
 
     return (
         <div className = 'all-albums-container'>
-            <h1 className = 'all-albums-header'>Your Albums</h1>
+            <h1 className = 'all-albums-header'>
+                { sessionUser.username }'s Albums
+            </h1>
             <div className = 'all-albums-div'>
                 { albums.length > 0 ? albums.map(album => (
-                    <NavLink
-                        className = 'all-albums-nav-wrapper'
+                    <div
+                        className = 'all-albums-nav-container'
                         key = { album.id }
-                        to = {`/albums/${album.id}`}
                     >
-                        <div className = 'all-albums-style-div'>
-                            <div className = 'album-list-img-div'>
-                                <img
-                                    className = 'all-albums-display'
-                                    src = {album.Images.length > 0 ? `${album.Images[0].imageUrl}` : null}
-                                />
+                        <NavLink
+                            className = 'all-albums-nav-wrapper'
+                            to = {`/albums/${album.id}`}
+                        >
+                            <div className = 'all-albums-style-div'>
+                                <div className = 'album-list-img-div'>
+                                    <img
+                                        className = 'all-albums-display'
+                                        src = {album.Images.length > 0 ?
+                                            `${album.Images[0].imageUrl}` : null}
+                                        alt = 'Album Cover'
+                                    />
+                                </div>
+                                <div className = 'all-albums-field'>{album.title}</div>
+                                <div
+                                    className = 'all-albums-field'
+                                >
+                                    {album.Images.length}
+                                    {album.Images.length < 2 && album.Images.length > 0
+                                        ? ' photo' : ' photos'}
+                                </div>
                             </div>
-                            <div className = 'all-albums-field'>{album.title}</div>
-                            <div
-                                className = 'all-albums-field'
-                            >
-                                {album.Images.length}
-                                {album.Images.length < 2 && album.Images.length > 0
-                                    ? ' photo' : ' photos'}
+                        </NavLink>
+                            <div className = 'all-albums-delete-div'>
+                                <button className = 'all-albums-delete'>
+                                    Delete
+                                </button>
                             </div>
-                        </div>
-                    </NavLink>
+                    </div>
                 )): null}
             </div>
         </div>
