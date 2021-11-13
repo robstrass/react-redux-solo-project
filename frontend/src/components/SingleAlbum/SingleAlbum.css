@@ -1,0 +1,45 @@
+.single-album-title-div {
+    display: flex;
+    justify-content: center;
+}
+
+/* .single-album-title {
+
+} */
+
+.single-album-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.single-album-img-nav {
+    width: 25%;
+    box-sizing: border-box;
+    margin: 1rem;
+}
+
+.single-album-img-div {
+    position: relative;
+    width: 5rem;
+    height: 10rem;
+    overflow: hidden;
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, .25);
+    width: 100%;
+    transition: all 0.4s ease;
+}
+
+.single-album-img-div:hover {
+    transform: scale(1.05);
+}
+
+.single-album-img {
+    position: absolute;
+    margin: auto;
+    top: -9999px;
+    bottom: -9999px;
+    right: -9999px;
+    left: -9999px;
+    width: 100%;
+}

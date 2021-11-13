@@ -21,27 +21,30 @@ function SingleAlbum() {
     if (album.redirect) return <Redirect to = '/albums' />
 
     return (
-        <div className = 'single-album-container'>
-            <div className = 'single-album-style'>
+        <>
+            <div className = 'single-album-title-div'>
                 <h1 className = 'single-album-title'>
-                    {album.title}
+                    { album.title }
                 </h1>
-                <div className = 'single-album-div'>
-                    { album.Images?.length > 0 ? album.Images.map(image => (
-                        <div
-                            key = { image.id }
-                            className = 'single-album-img-div'
-                        >
+            </div>
+            <div className = 'single-album-container'>
+                { album.Images?.length > 0 ? album.Images.map(image => (
+                    <div
+                        key = { image.id }
+                        className = 'single-album-img-nav'
+                    >
+                        <div className = 'single-album-img-div'>
                             <img
                                 className = 'single-album-img'
                                 src = { image.imageUrl }
                                 alt = 'car'
                             />
                         </div>
-                    )) : null }
-                </div>
+                        {/* <div>hi</div> */}
+                    </div>
+                )) : null }
             </div>
-        </div>
+        </>
     )
 }
 
