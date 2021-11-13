@@ -76,17 +76,3 @@
     font-size: 2rem;
     margin-left: 1rem;
 }
-
-.all-albums-delete-div {
-    display: flex;
-    align-items: center;
-}
-
-.all-albums-delete {
-    box-sizing: border-box;
-    height: 2rem;
-    width: 5rem;
-    background-color: #F24236;
-    border: 1px;
-    border-radius: 4px;
-}

@@ -26,6 +26,9 @@ function SingleAlbum() {
                 <h1 className = 'single-album-title'>
                     { album.title }
                 </h1>
+                <button className = 'single-album-delete'>
+                    Remove Album
+                </button>
             </div>
             <div className = 'single-album-container'>
                 { album.Images?.length > 0 ? album.Images.map(image => (

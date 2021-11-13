@@ -56,11 +56,6 @@ function AllAlbums() {
                                 </div>
                             </div>
                         </NavLink>
-                            <div className = 'all-albums-delete-div'>
-                                <button className = 'all-albums-delete'>
-                                    Delete
-                                </button>
-                            </div>
                     </div>
                 )): null}
             </div>

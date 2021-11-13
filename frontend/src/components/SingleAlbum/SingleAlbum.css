@@ -1,11 +1,28 @@
 .single-album-title-div {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
-/* .single-album-title {
+.single-album-title {
+    color: white;
+    margin: 0.5rem;
+}
 
-} */
+.single-album-delete {
+    box-sizing: border-box;
+    height: 2rem;
+    width: 5rem;
+    background-color: #F24236;
+    border: 1px;
+    border-radius: 4px;
+    transition: all 0.4s ease;
+}
+
+.single-album-delete:hover {
+    transform: scale(1.1)
+}
 
 .single-album-container {
     display: flex;
