@@ -26,9 +26,11 @@ function SingleAlbum() {
                 <h1 className = 'single-album-title'>
                     { album.title }
                 </h1>
-                <button className = 'single-album-delete'>
-                    Delete
-                </button>
+                { album.title ?
+                    <button className = 'single-album-delete'>
+                        Delete
+                    </button>
+                : null }
             </div>
             <div className = 'single-album-container'>
                 { album.Images?.length > 0 ? album.Images.map(image => (
@@ -44,7 +46,6 @@ function SingleAlbum() {
                                 alt = 'car'
                             />
                         </div>
-                        {/* <div>hi</div> */}
                     </NavLink>
                 )) : null }
             </div>
