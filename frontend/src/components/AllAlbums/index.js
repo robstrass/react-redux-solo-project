@@ -28,7 +28,12 @@ function AllAlbums() {
                 <h1 className = 'all-albums-header'>
                     { sessionUser.username }'s Albums
                 </h1>
-                <button className = 'new-album'>New Album</button>
+                <NavLink
+                    className = 'new-album'
+                    to = '/albums/add'
+                >
+                    New Album
+                </NavLink>
             </div>
             <div className = 'all-albums-div'>
                 { albums.length > 0 ? albums.map(album => (

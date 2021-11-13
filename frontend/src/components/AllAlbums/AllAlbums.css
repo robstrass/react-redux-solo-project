@@ -15,6 +15,9 @@
 }
 
 .new-album {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     box-sizing: border-box;
     height: 2.5rem;
     width: 6rem;
@@ -24,6 +27,7 @@
     border-radius: 4px;
     transition: all 0.4s ease;
     font-size: 1rem;
+    text-decoration: none;
 }
 
 .new-album:hover {

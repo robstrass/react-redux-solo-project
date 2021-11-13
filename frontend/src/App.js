@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import SplashPage from './components/SplashPage';
 import LoginFormPage from './components/LoginFormPage';
 import SignupFormPage from './components/SignUpFormPage';
@@ -12,6 +12,7 @@ import UserImage from './components/UserImage';
 import AddImage from './components/AddImage';
 import AllAlbums from './components/AllAlbums';
 import SingleAlbum from './components/SingleAlbum';
+import AddAlbum from './components/AddAlbum';
 import * as sessionActions from './store/session';
 
 function App() {
@@ -39,7 +40,7 @@ function App() {
           <Route path = '/signup'>
             <SignupFormPage />
           </Route>
-          <Route path = '/images/:id'>
+          <Route path = '/profile/images/:id'>
             <ImageDetail />
           </Route>
           <Route exact path = '/profile'>
@@ -56,6 +57,12 @@ function App() {
           </Route>
           <Route path = '/albums/:id'>
             <SingleAlbum />
+          </Route>
+          <Route path = '/albums/add'>
+            <AddAlbum />
+          </Route>
+          <Route>
+            <Redirect to = '/homepage' />
           </Route>
         </Switch>
       )}
