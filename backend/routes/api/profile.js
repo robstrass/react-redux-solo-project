@@ -104,6 +104,18 @@ router.post('/:id(\\d+)/albums', albumValidation, asyncHandler(async (req, res) 
 router.delete('/:userId(\\d+)/albums/:id(\\d+)', asyncHandler(async (req, res) => {
     const { userId, id } = req.params;
 
+    const images = await Image.findAll({
+        where: {
+            albumId: id
+        }
+    });
+
+    await images.forEach(image => {
+        image.update({
+            albumId: null
+        });
+    });
+
     const album = await Album.findByPk(id);
     const albumUserId = album.userId;
 

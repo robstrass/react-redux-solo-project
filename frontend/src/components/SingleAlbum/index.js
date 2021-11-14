@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams, Redirect, NavLink } from 'react-router-dom';
 
 import { loadOneAlbum } from '../../store/albums';
+import DeleteAlbumModal from '../DeleteAlbum/DeleteAlbumModal';
 
 import './SingleAlbum.css';
 
@@ -27,9 +28,9 @@ function SingleAlbum() {
                     { album.title }
                 </h1>
                 { album.title ?
-                    <button className = 'single-album-delete'>
-                        Delete
-                    </button>
+                    <DeleteAlbumModal
+                        album = { album }
+                    />
                 : null }
             </div>
             <div className = 'single-album-container'>

@@ -120,7 +120,6 @@ const userImageReducer = (state = initialState, action) => {
             newState = { ...state };
             delete newState[action.image];
             delete newState.all[action.image.id]
-            // newState.switch = !newState.switch
             return newState;
         case EDIT_IMAGE:
             newState = { ...state };

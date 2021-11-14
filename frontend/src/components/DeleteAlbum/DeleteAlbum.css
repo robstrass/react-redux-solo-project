@@ -1,0 +1,16 @@
+.album-delete-button {
+    box-sizing: border-box;
+    height: 2rem;
+    width: 5rem;
+    background-color: #F24236;
+    color: white;
+    border: 1px;
+    border-radius: 4px;
+    transition: all 0.4s ease;
+    font-size: 1rem;
+    transition: all 0.4s ease;
+}
+
+.album-delete-button:hover {
+    transform: scale(1.1)
+}
