@@ -44,7 +44,40 @@ function AddAlbum() {
     if (!sessionUser) return <Redirect to = '/' />;
 
     return (
-        <h1>ballsack</h1>
+        <div className = 'new-album-form-container'>
+            <div className = 'new-album-form-div'>
+                <p id = 'new-album-p'>Add an Album</p>
+                { errors.length > 0 && (<div className = 'new-album-errors-div'>
+                    <ul className = 'new-album-errors-ul'>
+                        { errors.map(error => (
+                            <li
+                                className = 'new-album-error-li'
+                                key = { error }
+                            >
+                                { error }
+                            </li>
+                        ))}
+                    </ul>
+                </div>) }
+                <form
+                    className = 'new-album-form'
+                    onSubmit = { handleSubmit }
+                >
+                    <input
+                        className = 'new-album-field'
+                        placeholder = 'Title'
+                        value = { title }
+                        onChange = { e => setTitle(e.target.value) }
+                    />
+                    <button
+                        className = 'new-album-button'
+                        type = 'submit'
+                    >
+                        Add
+                    </button>
+                </form>
+            </div>
+        </div>
     )
 }
 

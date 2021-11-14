@@ -39,27 +39,27 @@ function AllAlbums() {
                 { albums.length > 0 ? albums.map(album => (
                     <div
                         className = 'all-albums-nav-container'
-                        key = { album.id }
+                        key = { album?.id }
                     >
                         <NavLink
                             className = 'all-albums-nav-wrapper'
-                            to = {`/albums/${album.id}`}
+                            to = {`/albums/${album?.id}`}
                         >
                             <div className = 'all-albums-style-div'>
                                 <div className = 'album-list-img-div'>
                                     <img
                                         className = 'all-albums-display'
-                                        src = {album.Images.length > 0 ?
-                                            `${album.Images[0].imageUrl}` : null}
+                                        src = {album?.Images?.length > 0 ?
+                                            `${album?.Images[0].imageUrl}` : null}
                                         alt = 'Album Cover'
                                     />
                                 </div>
-                                <div className = 'all-albums-field'>{album.title}</div>
+                                <div className = 'all-albums-field'>{album?.title}</div>
                                 <div
                                     className = 'all-albums-field photo-count'
                                 >
-                                    {album.Images.length}
-                                    {album.Images.length < 2 && album.Images.length > 0
+                                    {album?.Images?.length}
+                                    {album?.Images?.length < 2 && album?.Images?.length > 0
                                         ? ' photo' : ' photos'}
                                 </div>
                             </div>
