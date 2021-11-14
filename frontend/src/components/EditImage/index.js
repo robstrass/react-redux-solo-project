@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect, useHistory } from 'react-router-dom'
 
 import { editOneImage } from '../../store/userImages';
+import { allAlbums } from '../../store/albums';
 
 import './EditImage.css';
 
@@ -11,17 +12,23 @@ function EditImage({ image, setShowModal }) {
     const history = useHistory();
 
     const sessionUser = useSelector(state => state.session.user);
+    const albums = useSelector(state => Object.values(state.albums.all));
     const { id } = sessionUser;
     const [content, setContent] = useState(image.content);
     const [albumId, setAlbumId] = useState('');
     const [errors, setErrors] = useState([]);
 
+    console.log('albums', albums)
     const validate = () => {
         const validationErrors = [];
         if (!content) validationErrors.push('Please provide content for your image.');
 
         return validationErrors;
     }
+
+    useEffect(() => {
+        dispatch(allAlbums(id));
+    }, [dispatch]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -74,12 +81,29 @@ function EditImage({ image, setShowModal }) {
                         value = { content }
                         onChange = { e => setContent(e.target.value) }
                     />
-                    <input
+                    {/* <input
                         className = 'edit-image-field'
                         placeholder = 'AlbumId Placeholder (change)'
                         value = { albumId }
                         onChange = { e => setAlbumId(e.target.value) }
-                    />
+                    /> */}
+                    <select
+                        value = { albumId }
+                        onChange = {e => setAlbumId(e.target.value)}
+                        className = 'edit-image-field'
+                    >
+                        <option value = ''>
+                            none
+                        </option>
+                        { albums?.map(album => (
+                            <option
+                                value = { album.id }
+                                key = { album.id }
+                            >
+                                { album.title }
+                            </option>
+                        ))}
+                    </select>
                     <button
                         className = 'edit-image-field edit-image-submit'
                         type = 'submit'
