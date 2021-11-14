@@ -9,11 +9,13 @@ const sessionRouter = require('./session.js');
 const usersRouter = require('./users.js');
 const imageRouter = require('./images.js');
 const profileRouter = require('./profile.js');
+const albumRouter = require('./albums');
 
 router.use('/session', sessionRouter);
 router.use('/users', usersRouter);
 router.use('/images', imageRouter);
 router.use('/profile', profileRouter);
+router.use('/albums', albumRouter)
 
 // // tests 'token' cookie
 // router.get('/set-token-cookie', asyncHandler(async (req, res) => {

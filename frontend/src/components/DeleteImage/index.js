@@ -20,7 +20,9 @@ function DeleteImage({ image, setShowModal }) {
     return (
         <div className = 'confirm-image-delete-container'>
             <div className = 'confirm-image-delete-div'>
-                <p className = 'confirm-delete-image-text'>Are you sure you want to remove this image?</p>
+                <p className = 'confirm-delete-image-text'>
+                    Are you sure you want to remove this image?
+                </p>
                 <div className = 'confirm-image-delete-buttons'>
                     <button
                         onClick = {deleteSingleImage}

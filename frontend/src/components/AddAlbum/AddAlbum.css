@@ -1,0 +1,74 @@
+.new-album-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 35rem;
+}
+
+.new-album-form-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    background-color: white;
+    padding: 1rem;
+    border: 1px;
+    border-radius: 8px;
+    width: 40%;
+}
+
+#new-album-p {
+    box-sizing: border-box;
+    margin: .5rem;
+    font-size: 1.25rem;
+}
+
+.new-album-errors-div {
+    width: 75%;
+}
+
+.new-album-errors-ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f24236;
+    box-sizing: border-box;
+    margin-bottom: 1rem;
+    border: 1px;
+    border-radius: 8px;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+}
+
+.new-album-error-li {
+    text-align: center;
+    box-sizing: border-box;
+    margin: .5rem;
+}
+
+.new-album-form {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+
+.new-album-field {
+    box-sizing: border-box;
+    margin: .25rem;
+    height: 2.5rem;
+    font-size: 1rem;
+}
+
+.new-album-button {
+    box-sizing: border-box;
+    margin: .25rem;
+    height: 2.5rem;
+    border: 1px;
+    border-radius: 4px;
+    font-size: 1rem;
+    color: white;
+    background-color: #5AA9E6;
+}

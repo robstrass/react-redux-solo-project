@@ -1,7 +1,7 @@
 .splash-container {
     display: flex;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
     box-sizing: border-box;
     margin: 0;
     width: 100%;
@@ -9,14 +9,15 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    background-image: url(https://res.cloudinary.com/depdd11lz/image/upload/v1636703446/Drivr-dark-grey-audi_jgtj20.jpg);
+    background-image: url(https://res.cloudinary.com/depdd11lz/image/upload/v1636749178/Drivr-gif_fyap7d.webp);
+    padding-top: 15rem;
 }
 
 .splash-content-div {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
     /* background-color: #FFC857; */
     width: 60%
 }

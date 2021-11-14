@@ -49,7 +49,7 @@ function AddImage() {
     return (
         <div className = 'new-image-form-container'>
             <div className = 'new-image-form-div'>
-                <p id = 'new-image-p'>Add an Image</p>
+                <p id = 'new-image-p'>Upload Image</p>
                 {errors.length > 0 && (<div className = 'new-image-errors-div'>
                     <ul className = 'new-image-errors-ul'>
                         { errors.map(error => (
@@ -89,7 +89,7 @@ function AddImage() {
                         className = 'new-image-button'
                         type = 'submit'
                     >
-                        Submit
+                        Upload
                     </button>
                 </form>
             </div>

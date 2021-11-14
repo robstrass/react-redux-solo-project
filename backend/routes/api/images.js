@@ -6,9 +6,9 @@ const { Image } = require('../../db/models');
 
 const router = express.Router();
 
-const imageNotFoundError = productId => {
-    const err = new Error(`Product number ${productId} was not found`);
-    err.title = 'Product not found';
+const imageNotFoundError = imageId => {
+    const err = new Error(`Image number ${imageId} was not found`);
+    err.title = 'Image not found';
     err.status = 404;
     throw err;
 };

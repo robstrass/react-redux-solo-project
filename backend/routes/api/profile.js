@@ -17,6 +17,13 @@ const imageValidation = [
         .withMessage('Please give a description of your photo.')
 ]
 
+
+const albumValidation = [
+    check('title')
+        .exists({ checkFalsy: true })
+        .withMessage('Please give your album a name.'),
+]
+
 // All of a User's Images
 router.get('/:userId(\\d+)/images', restoreUser, asyncHandler(async (req, res) => {
     const { userId } = req.params;
@@ -29,6 +36,19 @@ router.get('/:userId(\\d+)/images', restoreUser, asyncHandler(async (req, res) =
     res.json(images);
 }));
 
+// Get all Albums
+router.get('/:userId(\\d+)/albums', asyncHandler(async (req, res) => {
+    const { userId } = req.params;
+    const albums = await Album.findAll({
+        where: {
+            userId,
+        },
+        include: { model: Image }
+    });
+    res.json(albums);
+}));
+
+// Add Image
 router.post('/:id(\\d+)/images', imageValidation, asyncHandler(async (req, res) => {
     const { id } = req.params;
     const { userId, albumId, imageUrl, content } = req.body;
@@ -49,6 +69,7 @@ router.post('/:id(\\d+)/images', imageValidation, asyncHandler(async (req, res) 
     }
 }));
 
+// Delete Image
 router.delete('/:userId(\\d+)/images/:id(\\d+)', asyncHandler(async (req, res) => {
     const { userId, id } = req.params;
 
@@ -56,8 +77,53 @@ router.delete('/:userId(\\d+)/images/:id(\\d+)', asyncHandler(async (req, res) =
     const imageUserId = image.userId;
     if (+userId === imageUserId) {
         await image.destroy();
-        res.send(`Deleted image ${id}`);
+        res.json('Success, image deleted.');
     }
 }));
+
+// Post album
+router.post('/:id(\\d+)/albums', albumValidation, asyncHandler(async (req, res) => {
+    const { id } = req.params;
+    const { userId, title } = req.body;
+    const albumErrors = validationResult(req);
+
+    if (+id === +userId && albumErrors.isEmpty()) {
+        const newAlbum = await Album.build({
+            userId,
+            title
+        });
+        console.log('newAlbum', newAlbum)
+        await newAlbum.save();
+        res.json(newAlbum)
+    } else {
+        let errors = albumErrors.array().map(error => error.msg);
+        res.json({ errors });
+    }
+}));
+
+router.delete('/:userId(\\d+)/albums/:id(\\d+)', asyncHandler(async (req, res) => {
+    const { userId, id } = req.params;
+
+    const images = await Image.findAll({
+        where: {
+            albumId: id
+        }
+    });
+
+    await images.forEach(image => {
+        image.update({
+            albumId: null
+        });
+    });
+
+    const album = await Album.findByPk(id);
+    const albumUserId = album.userId;
+
+    if (+userId === albumUserId) {
+        await album.destroy();
+        res.json('Success, album deleted.')
+    }
+}));
+
 
 module.exports = router;
