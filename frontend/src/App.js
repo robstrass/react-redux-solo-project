@@ -43,11 +43,11 @@ function App() {
           <Route path = '/homepage/images/:id'>
             <ImageDetail />
           </Route>
+          <Route path = '/profile/images/upload'>
+            <AddImage />
+          </Route>
           <Route exact path = '/profile'>
             <UserProfile />
-          </Route>
-          <Route path = 'profile/images/upload'>
-            <AddImage />
           </Route>
           <Route path = '/profile/images/:id'>
             <UserImage />
