@@ -77,7 +77,7 @@ router.delete('/:userId(\\d+)/images/:id(\\d+)', asyncHandler(async (req, res) =
     const imageUserId = image.userId;
     if (+userId === imageUserId) {
         await image.destroy();
-        res.send(`Deleted image ${id}`);
+        res.json('Success, image deleted.');
     }
 }));
 
@@ -98,6 +98,18 @@ router.post('/:id(\\d+)/albums', albumValidation, asyncHandler(async (req, res) 
     } else {
         let errors = albumErrors.array().map(error => error.msg);
         res.json({ errors });
+    }
+}));
+
+router.delete('/:userId(\\d+)/albums/:id(\\d+)', asyncHandler(async (req, res) => {
+    const { userId, id } = req.params;
+
+    const album = await Album.findByPk(id);
+    const albumUserId = album.userId;
+
+    if (+userId === albumUserId) {
+        await album.destroy();
+        res.json('Success, album deleted.')
     }
 }));
 
