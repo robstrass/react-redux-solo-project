@@ -8,7 +8,6 @@
 .homepage-single-div-style {
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
     box-sizing: border-box;
     width: 75%;
     height: auto;
@@ -21,26 +20,16 @@
     position: relative;
     width: 5rem;
     height: auto;
-    /* overflow: hidden; */
     box-sizing: border-box;
     margin: 1rem;
-    /* background-color: rgba(0, 0, 0, .25); */
     width: auto;
 }
 
 .homepage-single-img {
-    /* position: absolute; */
     margin: auto;
-    /* top: -9999px;
-    bottom: -9999px;
-    right: -9999px;
-    left: -9999px; */
     width: 100%;
     height: auto;
     object-fit: cover;
-    /* width: 100%;
-    height: 100%;
-    object-fit: contain; */
 }
 
 .homepage-single-img-content {
