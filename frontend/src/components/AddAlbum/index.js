@@ -46,7 +46,7 @@ function AddAlbum() {
     return (
         <div className = 'new-album-form-container'>
             <div className = 'new-album-form-div'>
-                <p id = 'new-album-p'>Add an Album</p>
+                <p id = 'new-album-p'>Create Album</p>
                 { errors.length > 0 && (<div className = 'new-album-errors-div'>
                     <ul className = 'new-album-errors-ul'>
                         { errors.map(error => (
@@ -73,7 +73,7 @@ function AddAlbum() {
                         className = 'new-album-button'
                         type = 'submit'
                     >
-                        Add
+                        Create
                     </button>
                 </form>
             </div>
