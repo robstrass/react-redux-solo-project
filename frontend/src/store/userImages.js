@@ -120,7 +120,8 @@ const userImageReducer = (state = initialState, action) => {
         case REMOVE_IMAGE:
             newState = { ...state };
             delete newState[action.image];
-            delete newState.all[action.image.id]
+            delete newState.all[action.image.id];
+            delete newState.current[action.image.id];
             return newState;
         case EDIT_IMAGE:
             newState = { ...state };
