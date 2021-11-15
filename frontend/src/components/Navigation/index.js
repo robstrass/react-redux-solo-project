@@ -55,6 +55,7 @@ function Navigation({ isLoaded }) {
                     className = 'portfolio-links'
                     href = 'https://github.com/robstrass'
                     target = '_blank'
+                    rel = 'noreferrer'
                 >
                     <i className = "fab fa-github fa-2x"></i>
                 </a>
@@ -62,6 +63,7 @@ function Navigation({ isLoaded }) {
                     className = 'portfolio-links'
                     href = 'https://www.linkedin.com/in/robstrasser-'
                     target = '_blank'
+                    rel = 'noreferrer'
                 >
                     <i className = "fab fa-linkedin fa-2x"></i>
                 </a>

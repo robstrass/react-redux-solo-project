@@ -4,6 +4,7 @@ const LOAD_ALBUMS = '/albums/loadAlbums';
 const LOAD_ALBUM = 'albums/loadAlbum';
 const ADD_ALBUM = '/albums/addAlbum';
 const REMOVE_ALBUM = '/albums/removeAlbum';
+const REMOVE_USER = '/session/removeUser';
 
 const loadAlbums = (albums) => ({
     type: LOAD_ALBUMS,
@@ -100,6 +101,9 @@ const albumsReducer = (state = initialState, action) => {
             newState = { ...state };
             delete newState[action.album];
             delete newState.all[action.album.id];
+            return newState;
+        case REMOVE_USER:
+            newState = { all: {}, current: {} };
             return newState;
         default:
             return state;

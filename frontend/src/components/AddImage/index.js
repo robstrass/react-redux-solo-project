@@ -28,7 +28,7 @@ function AddImage() {
 
     useEffect(() => {
         dispatch(allAlbums(id));
-    }, [dispatch]);
+    }, [dispatch, id]);
 
     const handleSubmit = (e) => {
         e.preventDefault();

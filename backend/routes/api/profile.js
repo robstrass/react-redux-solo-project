@@ -74,6 +74,7 @@ router.delete('/:userId(\\d+)/images/:id(\\d+)', asyncHandler(async (req, res) =
     const { userId, id } = req.params;
 
     const image = await Image.findByPk(id);
+    console.log('image', image)
     const imageUserId = image.userId;
     if (+userId === imageUserId) {
         await image.destroy();

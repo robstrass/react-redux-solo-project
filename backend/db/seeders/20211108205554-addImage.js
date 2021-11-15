@@ -19,7 +19,7 @@ module.exports = {
      },
      {
        userId: 1,
-       albumId: 2,
+       albumId: 1,
        imageUrl: 'https://res.cloudinary.com/depdd11lz/image/upload/v1636259092/Drivr-teal-subie_vojhqn.jpg',
        content: 'Fall Subaru',
        createdAt: new Date(),
@@ -27,6 +27,7 @@ module.exports = {
      },
      {
        userId: 1,
+       albumId: 1,
        imageUrl: 'https://res.cloudinary.com/depdd11lz/image/upload/v1636258425/Drivr-blue-blobeye_txg1x2.jpg',
        content: 'Blobeye',
        createdAt: new Date(),
@@ -45,7 +46,81 @@ module.exports = {
        content: 'Offroading',
        createdAt: new Date(),
        updatedAt: new Date()
-     }
+     },
+     {
+      userId: 1,
+      albumId: 2,
+      imageUrl: 'https://res.cloudinary.com/depdd11lz/image/upload/v1636952646/Drivr-gt3_ddxik8.jpg',
+      content: 'GT 3',
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },
+    {
+      userId: 1,
+      albumId: 2,
+      imageUrl: 'https://res.cloudinary.com/depdd11lz/image/upload/v1636952645/Drivr-huracan_gwmnm8.jpg',
+      content: 'Huracan',
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },
+    {
+      userId: 1,
+      albumId: 2,
+      imageUrl: 'https://res.cloudinary.com/depdd11lz/image/upload/v1636678657/Driver-audi-fall_s9ehvf.jpg',
+      content: 'R8',
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },
+    {
+      userId: 3,
+      imageUrl: 'https://res.cloudinary.com/depdd11lz/image/upload/v1636952666/Drivr-Rolly_ejfumo.jpg',
+      content: 'Rolls Royce',
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },
+    {
+      userId: 3,
+      imageUrl: 'https://res.cloudinary.com/depdd11lz/image/upload/v1636952646/Drivr-gt500_jvgizn.jpg',
+      content: 'GT500',
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },
+    {
+      userId: 3,
+      imageUrl: 'https://res.cloudinary.com/depdd11lz/image/upload/v1636703446/Drivr-dark-grey-audi_jgtj20.jpg',
+      content: 'RS5',
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },
+    {
+      userId: 1,
+      albumId: 2,
+      imageUrl: 'https://res.cloudinary.com/depdd11lz/image/upload/v1636954228/Drivr-viper_i4neqp.jpg',
+      content: 'Viper',
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },
+    {
+      userId: 1,
+      imageUrl: 'https://res.cloudinary.com/depdd11lz/image/upload/v1636954228/Drivr-white-datsun_rrrvuk.jpg',
+      content: 'White Datsun',
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },
+    {
+      userId: 1,
+      imageUrl: 'https://res.cloudinary.com/depdd11lz/image/upload/v1636954205/Drivr-71-mach1-mustang_c3pnxn.jpg',
+      content: '1971 Mach 1',
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },
+    {
+      userId: 1,
+      imageUrl: 'https://res.cloudinary.com/depdd11lz/image/upload/v1636954219/Drivr-orange-datsun_z4qxq5.jpg',
+      content: 'Aerial Datsun',
+      createdAt: new Date(),
+      updatedAt: new Date()
+    },
    ], {});
   },
 
