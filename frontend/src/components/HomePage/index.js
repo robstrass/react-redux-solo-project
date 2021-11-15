@@ -18,24 +18,31 @@ function HomePage() {
     if (!sessionUser) return <Redirect to = '/' />;
 
     return (
-        <div className = 'homepage-all-images'>
-            {images.length > 0 ? images.map(image => (
-                <NavLink
-                    className = 'homepage-nav-wrapper'
-                    key = {image.id}
-                    to = {`/homepage/images/${image.id}`}
-                    onClick = {() => console.log('hit redirect')}
-                >
-                    <div className = 'homepage-indiv-image'>
-                        <img
-                            src = {image.imageUrl}
-                            alt = 'car'
-                            className = 'homepage-images'
-                        />
-                    </div>
-                </NavLink>
-            )) : null}
-        </div>
+        <>
+            <div className = 'homepage-headline-div'>
+                <h1 className = 'homepage-headline'>
+                    Explore
+                </h1>
+            </div>
+            <div className = 'homepage-all-images'>
+                {images.length > 0 ? images.map(image => (
+                    <NavLink
+                        className = 'homepage-nav-wrapper'
+                        key = {image.id}
+                        to = {`/homepage/images/${image.id}`}
+                        onClick = {() => console.log('hit redirect')}
+                    >
+                        <div className = 'homepage-indiv-image'>
+                            <img
+                                src = {image.imageUrl}
+                                alt = 'car'
+                                className = 'homepage-images'
+                            />
+                        </div>
+                    </NavLink>
+                )) : null}
+            </div>
+        </>
     )
 }
 

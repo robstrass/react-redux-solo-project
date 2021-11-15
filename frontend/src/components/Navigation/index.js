@@ -9,6 +9,7 @@ function Navigation({ isLoaded }) {
     const sessionUser = useSelector(state => state.session.user);
 
     let sessionLinks;
+    let leftNavLinks;
     if (sessionUser) {
         sessionLinks = (
             <div className = 'nav-authed-user-buttons'>
@@ -21,6 +22,13 @@ function Navigation({ isLoaded }) {
                 <ProfileButton user = { sessionUser } />
             </div>
         );
+        leftNavLinks = (
+            <div className = 'nav-left-buttons'>
+                <NavLink className = 'navbar-explore-button' to = '/homepage'>
+                    <i className = "far fa-compass fa-2x"></i>
+                </NavLink>
+            </div>
+        )
     } else {
         sessionLinks = (
             <>
@@ -35,9 +43,28 @@ function Navigation({ isLoaded }) {
     return (
         <ul className = 'nav-bar'>
             <li className = 'logo-li'>
-                <NavLink exact to = '/homepage'>
-                    <img id = 'nav-logo' src = {logo} alt = 'Drivr Logo'/>
-                </NavLink>
+                <div className = 'nav-left-container'>
+                    <NavLink exact to = '/homepage'>
+                        <img id = 'nav-logo' src = {logo} alt = 'Drivr Logo'/>
+                    </NavLink>
+                    {isLoaded && leftNavLinks}
+                </div>
+            </li>
+            <li className = 'portfolio-li'>
+                <a
+                    className = 'portfolio-links'
+                    href = 'https://github.com/robstrass'
+                    target = '_blank'
+                >
+                    <i className = "fab fa-github fa-2x"></i>
+                </a>
+                <a
+                    className = 'portfolio-links'
+                    href = 'https://www.linkedin.com/in/robstrasser-'
+                    target = '_blank'
+                >
+                    <i className = "fab fa-linkedin fa-2x"></i>
+                </a>
             </li>
             <li className = 'user-auth-li'>
                 {isLoaded && sessionLinks}

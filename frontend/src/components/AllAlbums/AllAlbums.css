@@ -10,10 +10,6 @@
     align-items: center;
 }
 
-.all-albums-header {
-    color: white;
-}
-
 .new-album {
     display: flex;
     justify-content: center;

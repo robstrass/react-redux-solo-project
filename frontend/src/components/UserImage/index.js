@@ -12,6 +12,7 @@ function UserImage() {
     const dispatch = useDispatch();
     const { id } = useParams();
     const image = useSelector((state) => (state.userImage.current));
+    console.log('image', image);
 
     useEffect(() => (
         dispatch(loadOneImage(id))
@@ -33,6 +34,9 @@ function UserImage() {
                     />
                 </div>
                 <div className = 'profile-single-img-content'>{image.content}</div>
+                <div className = 'profile-single-img-album'>
+                    {image.Album?.title}
+                </div>
                 <div className = 'profile-img-button-container'>
                     <div className = 'profile-single-img-buttons'>
                         <EditImageModal
