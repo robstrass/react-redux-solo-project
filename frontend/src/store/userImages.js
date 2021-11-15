@@ -5,6 +5,7 @@ const LOAD_IMAGE = '/profile/loadOneImage';
 const ADD_IMAGE = '/profile/addImage';
 const REMOVE_IMAGE = '/profile/removeImage';
 const EDIT_IMAGE = '/profile/editImage';
+const REMOVE_USER = '/session/removeUser';
 
 const loadAll = (images) => ({
     type: LOAD_IMAGES,
@@ -124,6 +125,9 @@ const userImageReducer = (state = initialState, action) => {
         case EDIT_IMAGE:
             newState = { ...state };
             newState.all[action.image.id] = action.image;
+            return newState;
+        case REMOVE_USER:
+            newState = { all: {}, current: {} }
             return newState;
         default:
             return state;
