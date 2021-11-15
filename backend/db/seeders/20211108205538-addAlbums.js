@@ -11,13 +11,13 @@ module.exports = {
    return queryInterface.bulkInsert('Albums', [
      {
        userId: 1,
-       title: 'album1',
+       title: 'Subaru',
        createdAt: new Date(),
        updatedAt: new Date()
      },
      {
        userId: 1,
-       title: 'album2',
+       title: 'Super Cars',
        createdAt: new Date(),
        updatedAt: new Date()
      }

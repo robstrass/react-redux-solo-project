@@ -28,7 +28,7 @@ function EditImage({ image, setShowModal }) {
 
     useEffect(() => {
         dispatch(allAlbums(id));
-    }, [dispatch]);
+    }, [dispatch, id]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
