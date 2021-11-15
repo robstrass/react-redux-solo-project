@@ -50,6 +50,22 @@ function Navigation({ isLoaded }) {
                     {isLoaded && leftNavLinks}
                 </div>
             </li>
+            <li className = 'portfolio-li'>
+                <a
+                    className = 'portfolio-links'
+                    href = 'https://github.com/robstrass'
+                    target = '_blank'
+                >
+                    <i className = "fab fa-github fa-2x"></i>
+                </a>
+                <a
+                    className = 'portfolio-links'
+                    href = 'https://www.linkedin.com/in/robstrasser-'
+                    target = '_blank'
+                >
+                    <i className = "fab fa-linkedin fa-2x"></i>
+                </a>
+            </li>
             <li className = 'user-auth-li'>
                 {isLoaded && sessionLinks}
             </li>

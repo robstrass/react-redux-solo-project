@@ -73,6 +73,13 @@ li {
     transform: scale(1.1);
 }
 
+.portfolio-links {
+    box-sizing: border-box;
+    margin: 0.5rem;
+    text-decoration: none;
+    color: black;
+}
+
 .user-auth-li {
     display: flex;
     flex-direction: column;
