@@ -22,7 +22,7 @@ function SingleAlbum() {
     if (album.redirect) return <Redirect to = '/albums' />
 
     return (
-        <>
+        <div className='single-album-holder'>
             <div className = 'single-album-title-div'>
                 <h1 className = 'single-album-title'>
                     { album.title }
@@ -40,17 +40,18 @@ function SingleAlbum() {
                         className = 'single-album-img-nav'
                         to = { `/profile/images/${image.id}` }
                     >
-                        <div className = 'single-album-img-div'>
-                            <img
-                                className = 'single-album-img'
-                                src = { image.imageUrl }
-                                alt = 'car'
-                            />
+                        <img
+                            className = 'single-album-img'
+                            src = { image.imageUrl }
+                            alt = 'car'
+                        />
+                        <div className='single-album-content'>
+                            {image.content}
                         </div>
                     </NavLink>
                 )) : null }
             </div>
-        </>
+        </div>
     )
 }
 
