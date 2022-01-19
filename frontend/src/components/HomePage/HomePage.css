@@ -4,7 +4,12 @@
 
 .homepage-headline-div {
     display: flex;
-    justify-content: center;
+    justify-content: left;
+}
+
+.homepage-headline {
+    padding: 0 4px;
+    font-weight: 400;
 }
 
 .homepage-all-images {
@@ -17,11 +22,12 @@
     height: 40vh;
     flex-grow: 1;
     padding: 4px 4px;
+    text-decoration: none;
     transition: all 0.4s ease;
 }
 
 .homepage-nav-wrapper:hover {
-    transform: scale(1.025)
+    transform: scale(1.02)
 }
 
 .homepage-images {
@@ -32,6 +38,8 @@
 }
 
 .homepage-image-content {
+    position: relative;
+    bottom: 25px;
     background-color: rgba(0, 0, 0, .4);
     text-decoration: none;
     color: white;
