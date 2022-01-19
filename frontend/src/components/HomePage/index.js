@@ -39,6 +39,11 @@ function HomePage() {
                                 className = 'homepage-images'
                             />
                         </div>
+                        <div
+                            className = 'homepage-image-content'
+                        >
+                            {image.content}
+                        </div>
                     </NavLink>
                 )) : null}
             </div>
