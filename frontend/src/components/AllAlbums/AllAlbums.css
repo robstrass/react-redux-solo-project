@@ -2,11 +2,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 }
 
 .all-albums-title {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -27,63 +28,42 @@
 }
 
 .new-album:hover {
-    transform: scale(1.1);
+    transform: scale(1.02);
 }
 
 .all-albums-div {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-sizing: border-box;
-    width: 75%;
-}
-
-.all-albums-nav-container {
-    display: flex;
-    width: 100%;
+    flex-wrap: wrap;
+    padding: 4px 4px;
 }
 
 .all-albums-nav-wrapper {
-    display: flex;
-    justify-content: center;
-    box-sizing: border-box;
-    width: 100%;
+    height: 40vh;
+    flex-grow: 1;
+    padding: 4px 4px;
     text-decoration: none;
-    color: black;
+    color: white;
     transition: all 0.4s ease;
 }
 
 .all-albums-nav-wrapper:hover {
-    transform: scale(1.025)
-}
-
-.all-albums-style-div {
-    display: flex;
-    justify-content: space-around;
-    box-sizing: border-box;
-    margin: 1rem;
-    height: 15rem;
-    background-color: white;
-    border: 1px;
-    border-radius: 8px;
-    width: 100%;
-}
-
-.album-list-img-div {
-    position: relative;
-    overflow: hidden;
-    width: 10rem;
+    transform: scale(1.02)
 }
 
 .all-albums-display {
-    position: absolute;
-    margin: auto;
-    top: -9999px;
-    bottom: -9999px;
-    right: -9999px;
-    left: -9999px;
-    width: 100%;
-    height: auto;
+    max-height: 100%;
+    min-width: 100%;
+    object-fit: cover;
+    vertical-align: bottom;
+}
+
+.all-albums-info {
+    position: relative;
+    bottom: 35px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
 .all-albums-field {
@@ -91,8 +71,8 @@
     flex-direction: column;
     justify-content: center;
     box-sizing: border-box;
-    font-size: 2rem;
-    margin-left: 1rem;
+    /* font-size: 2rem; */
+    /* margin-left: 1rem; */
 }
 
 .photo-count {
