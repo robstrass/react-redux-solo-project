@@ -45,9 +45,12 @@ function ImageDetail() {
                                 <div className = 'homepage-single-comment-content'>
                                     {comment.comment}
                                 </div>
-                                {/* {comment.User?.id === sessionUser.id && (
-                                    <div className = 'homepage'
-                                )} */}
+                                {comment.User?.id === sessionUser.id && (
+                                    <div className = 'homepage-single-comment-buttons'>
+                                        <div className = 'homepage-single-comment-edit'>Edit</div>
+                                        <div className = 'homepage-single-comment-delete'>Delete</div>
+                                    </div>
+                                )}
                             </div>
                         )) : null}
                     </div>
