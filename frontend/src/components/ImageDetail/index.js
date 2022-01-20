@@ -10,6 +10,7 @@ function ImageDetail() {
     const dispatch = useDispatch();
     const { id } = useParams();
     const image = useSelector((state) => (state.image.current));
+    console.log('imageeeeeee', image)
 
     useEffect(() => (
         dispatch(loadOneImage(id))
@@ -22,7 +23,6 @@ function ImageDetail() {
 
     return (
         <div className = 'homepage-single-img-container'>
-            {/* <h2>Youre here</h2> */}
             <div className = 'homepage-single-div-style'>
                 <div className = 'homepage-single-img-div'>
                     <img
@@ -32,6 +32,26 @@ function ImageDetail() {
                     />
                 </div>
                 <div className = 'homepage-single-img-content'>{image.content}</div>
+                {image.Comments?.length > 0 && (
+                    <div className = 'homepage-single-img-comments-holder'>
+                        {image.Comments ? image.Comments.map(comment => (
+                            <div
+                                className = 'homepage-single-comment-holder'
+                                key = {comment.id}
+                            >
+                                <div className = 'homepage-single-comment-author'>
+                                    {comment.User?.username}
+                                </div>
+                                <div className = 'homepage-single-comment-content'>
+                                    {comment.comment}
+                                </div>
+                                {/* {comment.User?.id === sessionUser.id && (
+                                    <div className = 'homepage'
+                                )} */}
+                            </div>
+                        )) : null}
+                    </div>
+                )}
             </div>
         </div>
     )

@@ -2,7 +2,7 @@ const express = require('express');
 const asyncHandler = require('express-async-handler');
 const { check, validationResult } = require('express-validator');
 
-const { Image, Album } = require('../../db/models');
+const { Image, Album, Comment, User } = require('../../db/models');
 
 const router = express.Router();
 
@@ -29,9 +29,9 @@ router.get('/', asyncHandler(async (req, res) => {
 router.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
     const imageId = req.params.id;
     const image = await Image.findByPk(imageId, {
-        include: { model: Album }
+        include: [{ model: Album }, { model: Comment, include: User }]
     });
-    console.log('image w album', image.Album) 
+    console.log('image w album', image.Album)
 
     if (image) {
         res.json(image);
@@ -61,5 +61,10 @@ router.put('/:id(\\d+)', editValidation, asyncHandler(async (req, res, next) => 
         res.json({ errors });
     }
 }));
+
+// All Comments
+// router.get('/:id(\\d+)/comments', asyncHandler(async (req, res, next) => {
+
+// }));
 
 module.exports = router;
