@@ -8,6 +8,7 @@
 .homepage-single-div-style {
     display: flex;
     flex-direction: column;
+    align-items: center;
     box-sizing: border-box;
     width: 75%;
     height: auto;
@@ -37,4 +38,65 @@
     box-sizing: border-box;
     justify-content: center;
     margin-bottom: 1rem;
+    font-size: 18px;
+}
+
+.homepage-single-img-comments-holder {
+    background-color: royalblue;
+    border-radius: 8px;
+    width: 50%;
+}
+
+.homepage-single-comment-holder {
+    background-color: seagreen;
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.homepage-single-comment-author {
+    font-weight: 500;
+}
+
+.homepage-single-comment-author > span {
+    font-weight: 400;
+}
+
+.homepage-single-comment-content {
+    padding-left: 0.5rem;
+}
+
+.homepage-single-comment-buttons {
+    display: flex;
+    gap: 1rem;
+    background-color: skyblue;
+}
+
+.homepage-single-comment-edit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2rem;
+    width: 5rem;
+    border: 1px;
+    border-radius: 4px;
+    background-color: #5AA9E6;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.homepage-single-comment-delete {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2rem;
+    width: 5rem;
+    border: 1px;
+    border-radius: 4px;
+    background-color: #F24236;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
 }

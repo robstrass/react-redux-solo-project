@@ -31,7 +31,9 @@ function ImageDetail() {
                         alt = 'car'
                     />
                 </div>
-                <div className = 'homepage-single-img-content'>{image.content}</div>
+                <div className = 'homepage-single-img-content'>
+                    {image.content}
+                </div>
                 {image.Comments?.length > 0 && (
                     <div className = 'homepage-single-img-comments-holder'>
                         {image.Comments ? image.Comments.map(comment => (
@@ -40,7 +42,7 @@ function ImageDetail() {
                                 key = {comment.id}
                             >
                                 <div className = 'homepage-single-comment-author'>
-                                    {comment.User?.username}
+                                    {comment.User?.username} <span>wrote: </span>
                                 </div>
                                 <div className = 'homepage-single-comment-content'>
                                     {comment.comment}
