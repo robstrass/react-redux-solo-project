@@ -70,6 +70,15 @@ router.put('/:id(\\d+)', editValidation, asyncHandler(async (req, res, next) => 
     }
 }));
 
+// Get Comments
+router.get('/:id(\\d+)/comments', asyncHandler(async (req, res, next) => {
+    const imageId = req.params.id;
+    const comments = await Comment.findAll({
+        where: { imageId: imageId }
+    });
+    res.json({ comments })
+}));
+
 // Add Comment
 router.post('/:id(\\d+)/comments', addCommentValidation, asyncHandler(async (req, res, next) => {
     const imageId = req.params.id;

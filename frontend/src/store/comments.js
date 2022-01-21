@@ -1,14 +1,30 @@
 import { csrfFetch } from './csrf';
 
+const GET_COMMENTS = '/comment/GET_COMMENTS';
 const ADD_COMMENT = '/comment/ADD_COMMENT';
 
 // Action Creators
+const getComments = (comments) => ({
+    type: GET_COMMENTS,
+    comments
+});
+
 const addComment = (comment) => ({
     type: ADD_COMMENT,
     comment
 });
 
 // Thunks
+export const getCommentsThunk = (imageId) => async (dispatch) => {
+    const response = await csrfFetch(`/api/images/${imageId}/comments`);
+
+    if (response.ok) {
+        const data = await response.json();
+        dispatch(getComments(data));
+        return data;
+    }
+};
+
 export const addCommentThunk = (comment) => async (dispatch) => {
     const { imageId } = comment;
     const response = await csrfFetch(`/api/images/${imageId}/comments`, {
