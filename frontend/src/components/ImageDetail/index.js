@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams, Redirect } from 'react-router-dom';
 
 import { loadOneImage } from '../../store/image';
+import { addCommentThunk } from '../../store/comments';
 
 import './ImageDetail.css';
 
@@ -10,20 +11,44 @@ function ImageDetail() {
     const dispatch = useDispatch();
     const { id } = useParams();
     const image = useSelector((state) => (state.image.current));
+    const sessionUser = useSelector(state => state.session.user);
 
     const [actualComment, setActualComment] = useState('');
+    const [errors, setErrors] = useState('');
 
-    const handleSubmit = (e) => {
+    const validate = () => {
+        const validationErrors = [];
+        if (!actualComment) validationErrors.push('Comment cannot be empty.');
+        if (actualComment.length > 255) validationErrors.push('Comment cannot exceed 255 characters.');
+
+        return validationErrors;
+    }
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
+
+        const errors = validate();
+
+        if (errors && errors.length > 0) {
+            return setErrors(errors);
+        }
+
+        const newComment = {
+            userId: sessionUser.id,
+            imageId: id,
+            comment: actualComment
+        }
+
+        await dispatch(addCommentThunk(newComment));
+        setActualComment('');
     }
 
     useEffect(() => (
         dispatch(loadOneImage(id))
     ), [dispatch, id]);
 
-    const sessionUser = useSelector(state => state.session.user);
-    if (!sessionUser) return <Redirect to = '/' />;
 
+    if (!sessionUser) return <Redirect to = '/' />;
     if (image.redirect) return <Redirect to = '/homepage' />
 
     return (

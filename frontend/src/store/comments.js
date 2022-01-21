@@ -28,7 +28,7 @@ export const addCommentThunk = (comment) => async (dispatch) => {
 
 // Reducah
 const commentsReducer = (state = {}, action) => {
-    const newState = {};
+    let newState = {};
     switch(action.type) {
         case ADD_COMMENT:
             newState = { ...state };
