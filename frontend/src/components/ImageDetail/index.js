@@ -12,6 +12,10 @@ function ImageDetail() {
     const image = useSelector((state) => (state.image.current));
     console.log('imageeeeeee', image)
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+    }
+
     useEffect(() => (
         dispatch(loadOneImage(id))
     ), [dispatch, id]);
@@ -57,6 +61,18 @@ function ImageDetail() {
                         )) : null}
                     </div>
                 )}
+                <form
+                    className='homepage-single-img-form'
+                    onSubmit={handleSubmit}
+                >
+                    <textarea
+                        className='homepage-single-img-textarea'
+                        placeholder='Add a comment...'
+                    />
+                    <button className='homepage-single-img-submit'>
+                        Comment
+                    </button>
+                </form>
             </div>
         </div>
     )
