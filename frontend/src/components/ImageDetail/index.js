@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, Redirect } from 'react-router-dom';
 
@@ -10,7 +10,8 @@ function ImageDetail() {
     const dispatch = useDispatch();
     const { id } = useParams();
     const image = useSelector((state) => (state.image.current));
-    console.log('imageeeeeee', image)
+
+    const [actualComment, setActualComment] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -68,6 +69,8 @@ function ImageDetail() {
                     <textarea
                         className='homepage-single-img-textarea'
                         placeholder='Add a comment...'
+                        value={actualComment}
+                        onChange={(e) => setActualComment(e.target.value)}
                     />
                     <button className='homepage-single-img-submit'>
                         Comment
