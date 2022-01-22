@@ -2,6 +2,7 @@ import { csrfFetch } from './csrf';
 
 const GET_COMMENTS = '/comment/GET_COMMENTS';
 const ADD_COMMENT = '/comment/ADD_COMMENT';
+const DELETE_COMMENT = '/comment/DELETE_COMMENT';
 
 // Action Creators
 const getComments = (comments) => ({
@@ -12,6 +13,11 @@ const getComments = (comments) => ({
 const addComment = (comment) => ({
     type: ADD_COMMENT,
     comment
+});
+
+const deleteComment = (commentId) => ({
+    type: DELETE_COMMENT,
+    commentId
 });
 
 // Thunks
@@ -43,6 +49,18 @@ export const addCommentThunk = (comment) => async (dispatch) => {
     }
 }
 
+export const deleteCommentThunk = (commentId) => async(dispatch) => {
+    console.log('in the thnk', typeof commentId)
+    const response = await csrfFetch(`/api/comments/${commentId}`, {
+        method: 'DELETE'
+    });
+
+    if (response.ok) {
+        dispatch(deleteComment(commentId));
+        return commentId;
+    }
+}
+
 // Reducah
 const commentsReducer = (state = {}, action) => {
     let newState = {};
@@ -53,11 +71,15 @@ const commentsReducer = (state = {}, action) => {
                 newState[comment.id] = comment;
             });
             return newState;
-            case ADD_COMMENT:
+        case ADD_COMMENT:
                 newState = { ...state };
                 newState[action.comment.id] = action.comment;
                 console.log('hello there', action)
                 console.log('hello there', action.comment)
+            return newState;
+        case DELETE_COMMENT:
+            newState = { ...state };
+            delete newState[action.commentId];
             return newState;
         default:
             return state;

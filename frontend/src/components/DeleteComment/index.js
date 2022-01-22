@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import './DeleteComment.css';
+import { deleteCommentThunk } from '../../store/comments';
 
 export default function DeleteComment({ setDeleteModal, commentId, commentUserId }) {
     const dispatch = useDispatch();
@@ -10,6 +11,7 @@ export default function DeleteComment({ setDeleteModal, commentId, commentUserId
     const handleSubmit = async (e) => {
         if (user.id === commentUserId) {
             console.log('hello')
+            await dispatch(deleteCommentThunk(commentId));
             setDeleteModal(false);
         }
     }
