@@ -3,11 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import './EditComment.css';
 
-export default function EditComment({ setEditModal, editComment }) {
+export default function EditComment({ setEditModal, editingComment }) {
     const dispatch = useDispatch();
     const user = useSelector(state => state.session.user);
 
-    const [actualComment, setActualComment] = useState(editComment);
+    console.log('edit id', editingComment.id)
+
+    const [actualComment, setActualComment] = useState(editingComment.comment);
     const [errors, setErrors] = useState('');
 
     const validate = () => {
@@ -31,6 +33,7 @@ export default function EditComment({ setEditModal, editComment }) {
 
         const editedComment = {
             comment: actualComment,
+            commentId: editingComment.id
         }
     }
 
@@ -59,7 +62,6 @@ export default function EditComment({ setEditModal, editComment }) {
                 >
                     <textarea
                         className='edit-comment-textarea'
-                        placeholder='Add a comment...'
                         value={actualComment}
                         onChange={(e) => setActualComment(e.target.value)}
                     />

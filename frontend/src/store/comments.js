@@ -3,6 +3,7 @@ import { csrfFetch } from './csrf';
 const GET_COMMENTS = '/comment/GET_COMMENTS';
 const ADD_COMMENT = '/comment/ADD_COMMENT';
 const DELETE_COMMENT = '/comment/DELETE_COMMENT';
+const EDIT_COMMENT = '/comment/EDIT_COMMENT';
 
 // Action Creators
 const getComments = (comments) => ({
@@ -18,6 +19,11 @@ const addComment = (comment) => ({
 const deleteComment = (commentId) => ({
     type: DELETE_COMMENT,
     commentId
+});
+
+const editComment = (comment) => ({
+    type: EDIT_COMMENT,
+    comment
 });
 
 // Thunks
@@ -50,7 +56,6 @@ export const addCommentThunk = (comment) => async (dispatch) => {
 }
 
 export const deleteCommentThunk = (commentId) => async(dispatch) => {
-    console.log('in the thnk', typeof commentId)
     const response = await csrfFetch(`/api/comments/${commentId}`, {
         method: 'DELETE'
     });
@@ -58,6 +63,23 @@ export const deleteCommentThunk = (commentId) => async(dispatch) => {
     if (response.ok) {
         dispatch(deleteComment(commentId));
         return commentId;
+    }
+}
+
+export const editCommentThunk = (comment) => async(dispatch) => {
+    const { commentId } = comment;
+    const response = await csrfFetch(`/api/comments/${commentId}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(comment)
+    });
+
+    if (response.ok) {
+        const comment = await response.json();
+        dispatch(editComment(comment));
+        return comment;
     }
 }
 
@@ -80,6 +102,10 @@ const commentsReducer = (state = {}, action) => {
         case DELETE_COMMENT:
             newState = { ...state };
             delete newState[action.commentId];
+            return newState;
+        case EDIT_COMMENT:
+            newState = { ...state }
+            newState[action.comment.id] = action.comment;
             return newState;
         default:
             return state;

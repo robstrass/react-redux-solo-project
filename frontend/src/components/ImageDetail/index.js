@@ -74,7 +74,7 @@ function ImageDetail() {
             {editModal && (
                 <EditComment
                     setEditModal={setEditModal}
-                    setEditingComment={setEditingComment}
+                    editingComment={editingComment}
                 />
             )}
             <div className = 'homepage-single-img-container'>
