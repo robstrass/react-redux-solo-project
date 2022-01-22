@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams, Redirect } from 'react-router-dom';
 
 import { loadOneImage } from '../../store/image';
+import { getCommentsThunk } from '../../store/comments';
 import { addCommentThunk } from '../../store/comments';
 
 import './ImageDetail.css';
@@ -11,7 +12,10 @@ function ImageDetail() {
     const dispatch = useDispatch();
     const { id } = useParams();
     const image = useSelector((state) => (state.image.current));
+    const comments = useSelector(state => Object.values(state.comments));
     const sessionUser = useSelector(state => state.session.user);
+
+    console.log('laskdnlkansdlasndlad',comments)
 
     const [actualComment, setActualComment] = useState('');
     const [errors, setErrors] = useState('');
@@ -44,7 +48,8 @@ function ImageDetail() {
     }
 
     useEffect(() => (
-        dispatch(loadOneImage(id))
+        dispatch(loadOneImage(id)),
+        dispatch(getCommentsThunk(id))
     ), [dispatch, id]);
 
 
@@ -64,9 +69,9 @@ function ImageDetail() {
                 <div className = 'homepage-single-img-content'>
                     {image.content}
                 </div>
-                {image.Comments?.length > 0 && (
+                {comments?.length > 0 && (
                     <div className = 'homepage-single-img-comments-holder'>
-                        {image.Comments ? image.Comments.map(comment => (
+                        {comments ? comments.map(comment => (
                             <div
                                 className = 'homepage-single-comment-holder'
                                 key = {comment.id}

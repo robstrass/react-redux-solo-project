@@ -38,6 +38,7 @@ export const addCommentThunk = (comment) => async (dispatch) => {
     if (response.ok) {
         const data = await response.json()
         dispatch(addComment(data));
+        console.log('data this', data)
         return data;
     }
 }
@@ -46,9 +47,17 @@ export const addCommentThunk = (comment) => async (dispatch) => {
 const commentsReducer = (state = {}, action) => {
     let newState = {};
     switch(action.type) {
-        case ADD_COMMENT:
+        case GET_COMMENTS:
             newState = { ...state };
-            newState[action.comment.id] = action.comment;
+            action.comments.forEach(comment => {
+                newState[comment.id] = comment;
+            });
+            return newState;
+            case ADD_COMMENT:
+                newState = { ...state };
+                newState[action.comment.id] = action.comment;
+                console.log('hello there', action)
+                console.log('hello there', action.comment)
             return newState;
         default:
             return state;

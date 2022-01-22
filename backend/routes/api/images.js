@@ -74,9 +74,10 @@ router.put('/:id(\\d+)', editValidation, asyncHandler(async (req, res, next) => 
 router.get('/:id(\\d+)/comments', asyncHandler(async (req, res, next) => {
     const imageId = req.params.id;
     const comments = await Comment.findAll({
-        where: { imageId: imageId }
+        where: { imageId: imageId },
+        include: User
     });
-    res.json({ comments })
+    res.json(comments)
 }));
 
 // Add Comment
@@ -89,10 +90,11 @@ router.post('/:id(\\d+)/comments', addCommentValidation, asyncHandler(async (req
         const newComment = await Comment.build({
             imageId,
             userId,
-            comment
+            comment,
         });
         await newComment.save();
-        res.json(newComment);
+        const pastComment = await Comment.findByPk(newComment.id, { include: User });
+        res.json(pastComment);
     } else {
         let errors = addCommentErrors.array().map((error) => error.msg);
         res.json({ errors });
