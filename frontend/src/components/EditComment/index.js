@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import './EditComment.css';
+import { editCommentThunk } from '../../store/comments';
 
 export default function EditComment({ setEditModal, editingComment }) {
     const dispatch = useDispatch();
@@ -33,8 +34,12 @@ export default function EditComment({ setEditModal, editingComment }) {
 
         const editedComment = {
             comment: actualComment,
+            userId: user.id,
             commentId: editingComment.id
         }
+
+        await dispatch(editCommentThunk(editedComment));
+        setEditModal(false);
     }
 
     return (

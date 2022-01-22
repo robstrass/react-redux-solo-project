@@ -2,7 +2,7 @@ const express = require('express');
 const asyncHandler = require('express-async-handler');
 const { validationResult, check } = require('express-validator');
 
-const { Image, Comment } = require('../../db/models');
+const { Image, Comment, User } = require('../../db/models');
 
 const router = express.Router();
 
@@ -26,14 +26,15 @@ router.delete('/:id(\\d+)', asyncHandler(async (req, res, next) => {
 router.put('/:id(\\d+)', editCommentValidation, asyncHandler(async (req, res, next) => {
     const commentId = req.params.id;
     const { userId, comment } = req.body;
-    const editComment = Comment.findByPk(commentId);
+    const editComment = await Comment.findByPk(commentId);
     const editErrors = validationResult(req);
 
     if (editErrors.isEmpty() && userId === editComment.userId) {
         await editComment.update({
             comment
         });
-        res.json(editComment);
+        const newComment = await Comment.findByPk(editComment.id, { include: User })
+        res.json(newComment);
     } else {
         let errors = editErrors.array().map(error => error.msg);
         res.json({ errors });
