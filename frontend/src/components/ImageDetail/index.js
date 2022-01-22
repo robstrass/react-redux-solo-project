@@ -8,6 +8,7 @@ import { addCommentThunk } from '../../store/comments';
 
 import './ImageDetail.css';
 import DeleteComment from '../DeleteComment';
+import EditComment from '../EditComment';
 
 function ImageDetail() {
     const dispatch = useDispatch();
@@ -16,12 +17,12 @@ function ImageDetail() {
     const comments = useSelector(state => Object.values(state.comments));
     const sessionUser = useSelector(state => state.session.user);
 
-    console.log('laskdnlkansdlasndlad',comments)
-
     const [actualComment, setActualComment] = useState('');
     const [deleteModal, setDeleteModal] = useState(false);
+    const [editModal, setEditModal] = useState(false);
     const [commentId, setCommentId] = useState('');
     const [commentUserId, setCommentUserId] = useState('');
+    const [editingComment, setEditingComment] = useState('');
     const [errors, setErrors] = useState('');
 
     const validate = () => {
@@ -34,6 +35,7 @@ function ImageDetail() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setErrors([]);
 
         const errors = validate();
 
@@ -69,6 +71,12 @@ function ImageDetail() {
                     commentUserId={commentUserId}
                 />
             )}
+            {editModal && (
+                <EditComment
+                    setEditModal={setEditModal}
+                    setEditingComment={setEditingComment}
+                />
+            )}
             <div className = 'homepage-single-img-container'>
                 <div className = 'homepage-single-div-style'>
                     <div className = 'homepage-single-img-div'>
@@ -96,13 +104,21 @@ function ImageDetail() {
                                     </div>
                                     {comment.User?.id === sessionUser.id && (
                                         <div className = 'homepage-single-comment-buttons'>
-                                            <div className = 'homepage-single-comment-edit'>Edit</div>
+                                            <div
+                                                className = 'homepage-single-comment-edit'
+                                                onClick={() => {
+                                                    setEditModal(true)
+                                                    setEditingComment(comment)
+                                                }}
+                                            >
+                                                Edit
+                                            </div>
                                             <div
                                                 className = 'homepage-single-comment-delete'
                                                 onClick={() => {
                                                     setDeleteModal(true)
-                                                    setCommentId(comment.id)
-                                                    setCommentUserId(comment.User.id)
+                                                    setCommentId={setCommentId}
+                                                    setCommentUserId={setCommentUserId}
                                                 }}
                                             >
                                                 Delete
@@ -113,6 +129,18 @@ function ImageDetail() {
                             )) : null}
                         </div>
                     )}
+                    {errors.length > 0 && (<div className = 'new-image-errors-div'>
+                        <ul className = 'new-image-errors-ul'>
+                            { errors.map(error => (
+                                <li
+                                    className = 'new-image-error-li'
+                                    key = { error }
+                                >
+                                    { error }
+                                </li>
+                            ))}
+                        </ul>
+                    </div>)}
                     <form
                         className='homepage-single-img-form'
                         onSubmit={handleSubmit}

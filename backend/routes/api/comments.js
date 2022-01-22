@@ -1,6 +1,6 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
-const { validationResult } = require('express-validator');
+const { validationResult, check } = require('express-validator');
 
 const { Image, Comment } = require('../../db/models');
 
