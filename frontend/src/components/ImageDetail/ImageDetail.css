@@ -44,7 +44,7 @@
 .homepage-single-img-comments-holder {
     background-color: royalblue;
     border-radius: 8px;
-    width: 50%;
+    width: 75%;
 }
 
 .homepage-single-comment-holder {
@@ -105,13 +105,13 @@
     background-color: tomato;
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 75%;
 }
 
 .homepage-single-img-textarea {
     font-family: Ginto,"Helvetica Neue",Helvetica,Arial,sans-serif;
     resize: none;
-    height: 4rem;
+    height: 8rem;
     outline: none;
     border-radius: 4px;
     margin: 0.5rem 1rem;
