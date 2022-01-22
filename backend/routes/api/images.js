@@ -39,7 +39,6 @@ router.get('/:id(\\d+)', asyncHandler(async (req, res, next) => {
     const image = await Image.findByPk(imageId, {
         include: [{ model: Album }, { model: Comment, include: User }]
     });
-    console.log('image w album', image.Album)
 
     if (image) {
         res.json(image);
