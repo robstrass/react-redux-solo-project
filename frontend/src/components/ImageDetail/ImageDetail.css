@@ -42,13 +42,11 @@
 }
 
 .homepage-single-img-comments-holder {
-    background-color: royalblue;
-    border-radius: 8px;
     width: 75%;
+    border-top: 1px solid black;
 }
 
 .homepage-single-comment-holder {
-    background-color: seagreen;
     margin: 1rem;
     display: flex;
     flex-direction: column;
@@ -70,7 +68,6 @@
 .homepage-single-comment-buttons {
     display: flex;
     gap: 1rem;
-    background-color: skyblue;
 }
 
 .homepage-single-comment-edit {
@@ -102,7 +99,6 @@
 }
 
 .homepage-single-img-form {
-    background-color: tomato;
     display: flex;
     flex-direction: column;
     width: 75%;
