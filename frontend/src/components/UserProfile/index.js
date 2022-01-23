@@ -24,7 +24,7 @@ function UserProfile() {
 
 
     return (
-        <>
+        <div className='profile-page-container'>
             <div className = 'profile-headline-div'>
                 <h1 className = 'profile-headline'>
                     Your Photos
@@ -37,17 +37,18 @@ function UserProfile() {
                         key = {image.id}
                         to = {`/profile/images/${image.id}`}
                     >
-                        <div className = 'profile-indiv-image'>
-                            <img
-                                src = { image.imageUrl }
-                                alt = 'car'
-                                className = 'profile-images'
-                            />
+                        <img
+                            src = { image.imageUrl }
+                            alt = 'car'
+                            className = 'profile-images'
+                        />
+                        <div className='profile-image-content'>
+                            {image.content}
                         </div>
                     </NavLink>
                 )): null}
             </div>
-        </>
+        </div>
     )
 }
 

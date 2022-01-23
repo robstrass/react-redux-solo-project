@@ -5,6 +5,7 @@ import sessionReducer from './session';
 import imageReducer from './image';
 import userImageReducer from './userImages';
 import albumsReducer from './albums';
+import commentsReducer from './comments'
 
 // key is what's on state
 const rootReducer = combineReducers({
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
     image: imageReducer,
     userImage: userImageReducer,
     albums: albumsReducer,
+    comments: commentsReducer,
 });
 
 let enhancer;

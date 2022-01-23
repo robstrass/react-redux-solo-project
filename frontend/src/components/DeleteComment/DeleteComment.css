@@ -1,0 +1,60 @@
+.delete-comment-background {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+}
+
+.delete-comment-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    height: fit-content;
+    width: 300px;
+    background-color: rgb(245, 245, 245);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 4px;
+    z-index: 101;
+}
+
+.delete-comment-title {
+    text-align: center;
+    margin: 0.5rem 0;
+}
+
+.delete-comment-buttons {
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    margin: 0.5rem 0;
+}
+
+.delete-comment-confirm,
+.delete-comment-cancel {
+    margin: 1rem 0;
+    padding: 12px 20px;
+    color: white;
+    font-size: 17.5px;
+    border-radius: 6px;
+    border: none;
+    background-color: #5AA9E6;
+}
+
+.delete-comment-confirm:hover,
+.delete-comment-cancel:hover {
+    cursor: pointer;
+    box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%), 0 0 4px rgb(0 0 0 / 60%);
+}
+
+.delete-comment-cancel {
+    background-color: #F24236;
+    color: black;
+    border: 1px solid rgb(210,210,210);
+}

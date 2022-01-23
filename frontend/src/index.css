@@ -1,8 +1,11 @@
 body {
-    font-family: Proxima Nova,helvetica neue,helvetica,arial,sans-serif;
+    /* font-family: Proxima Nova,helvetica neue,helvetica,arial,sans-serif; */
+    font-family: Ginto,"Helvetica Neue",Helvetica,Arial,sans-serif;
+
     background-color: #ffc857;
     margin: 0;
     padding: 0;
+    padding-bottom: 4rem;
     /* background-image: url(https://res.cloudinary.com/depdd11lz/image/upload/v1636259092/Drivr-teal-subie_vojhqn.jpg); */
     /* background-size: cover; */
 }

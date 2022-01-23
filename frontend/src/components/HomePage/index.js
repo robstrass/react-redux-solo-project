@@ -18,7 +18,7 @@ function HomePage() {
     if (!sessionUser) return <Redirect to = '/' />;
 
     return (
-        <>
+        <div className='homepage-container'>
             <div className = 'homepage-headline-div'>
                 <h1 className = 'homepage-headline'>
                     Explore
@@ -32,17 +32,20 @@ function HomePage() {
                         to = {`/homepage/images/${image.id}`}
                         onClick = {() => console.log('hit redirect')}
                     >
-                        <div className = 'homepage-indiv-image'>
-                            <img
-                                src = {image.imageUrl}
-                                alt = 'car'
-                                className = 'homepage-images'
-                            />
+                        <img
+                            src = {image.imageUrl}
+                            alt = 'car'
+                            className = 'homepage-images'
+                        />
+                        <div
+                            className = 'homepage-image-content'
+                        >
+                            {image.content}
                         </div>
                     </NavLink>
                 )) : null}
             </div>
-        </>
+        </div>
     )
 }
 
