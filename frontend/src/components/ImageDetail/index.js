@@ -117,8 +117,8 @@ function ImageDetail() {
                                                 className = 'homepage-single-comment-delete'
                                                 onClick={() => {
                                                     setDeleteModal(true)
-                                                    setCommentId={setCommentId}
-                                                    setCommentUserId={setCommentUserId}
+                                                    setCommentId(comment.id)
+                                                    setCommentUserId(comment.User.id)
                                                 }}
                                             >
                                                 Delete
