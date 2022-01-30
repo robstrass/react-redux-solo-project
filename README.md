@@ -1,16 +1,29 @@
 # Drivr
+*By Rob Strasser - [Visit Driver](https://drivr-io.herokuapp.com/)*
 
-Welcome to Drivr, a Flickr clone built for people to post car pictures. 
+Welcome to Drivr, a Flickr clone built for people to post car pictures.
 
-Live link to the site: https://drivr-io.herokuapp.com/
+**Table of Contents**
 
-Drivr currently has CRUD features for Images and Albums. Access to the site is restricted to logged in users, 
-so feel free to browse through the site's functionality using the Demo-User account, which has full privileges.
+* [Drivr Overview](#drivr-overview)
+* [Technologies Used](#technologies-used)
+* [Backend Technology](#backend-technology)
+* [Frontend Technology](#frontend-technology)
+* [Conclusion](#conclusion)
 
-Take a look at the full Wiki for more details surrounding the features list and databse schema:
-https://github.com/robstrass/Drivr/wiki
+## Drivr Overview
 
-Tech Stack Utilized:
+Drivr is a fullstack app written in Express, React, and Redux that allows car aficionados to share images of cars that they own or enjoy.
+
+Users can access the explore page to view all images posted on the site or view their own images. They can also create albums for their images and post comments on images.
+
+##### Drivr Splash Page
+![Drivr Homepage](https://res.cloudinary.com/depdd11lz/image/upload/v1643503547/Screen_Shot_2022-01-29_at_4.32.20_PM_l975ph.png)
+
+##### Drivr Explore Page
+![Drivr Explore Page](https://res.cloudinary.com/depdd11lz/image/upload/v1643504520/Screen_Shot_2022-01-29_at_5.01.12_PM_wniqcm.png)
+
+## Technologies Used
 
 * Javascript
 * node.js
@@ -29,4 +42,126 @@ To clone the repo locally:
 6. Migrate your database by running `npx dotenv sequelize db:migrate`.
 7. Seed your database by running `npx dotenv sequelize db:seed:all`.
 
-To start your servers, run `npm start` from both `/frontend` and `/backend`. 
+To start your servers, run `npm start` from both `/frontend` and `/backend`.
+
+### Backend Technology
+
+* [Express](http://expressjs.com/en/api.html)
+* [PostgreSQL](https://www.postgresql.org/docs/13/)
+* [Sequelize](https://sequelize.org/)
+
+### User's Images Code Snippet
+
+```js
+// All of a User's Images
+router.get('/:userId(\\d+)/images', restoreUser, asyncHandler(async (req, res) => {
+    const { userId } = req.params;
+    const images = await Image.findAll({
+        where: {
+            userId,
+        },
+        include: {model: Album}
+    })
+    res.json(images);
+}));
+
+// Get all Albums
+router.get('/:userId(\\d+)/albums', asyncHandler(async (req, res) => {
+    const { userId } = req.params;
+    const albums = await Album.findAll({
+        where: {
+            userId,
+        },
+        include: { model: Image }
+    });
+    res.json(albums);
+}));
+
+// Add Image
+router.post('/:id(\\d+)/images', imageValidation, asyncHandler(async (req, res) => {
+    const { id } = req.params;
+    const { userId, albumId, imageUrl, content } = req.body;
+    const imageErrors = validationResult(req);
+
+    if (+id === +userId && imageErrors.isEmpty()) {
+        const newImg = await Image.build({
+            userId,
+            albumId,
+            imageUrl,
+            content
+        });
+        await newImg.save();
+        res.json(newImg);
+    } else {
+        let errors = imageErrors.array().map((error) => error.msg);
+        res.json({ errors });
+    }
+}));
+
+// Delete Image
+router.delete('/:userId(\\d+)/images/:id(\\d+)', asyncHandler(async (req, res) => {
+    const { userId, id } = req.params;
+
+    const image = await Image.findByPk(id);
+    console.log('image', image)
+    const imageUserId = image.userId;
+    if (+userId === imageUserId) {
+        await image.destroy();
+        res.json('Success, image deleted.');
+    }
+}));
+```
+
+### Frontend Technology
+
+* [React](https://v5.reactrouter.com/web/guides/quick-start)
+* [Redux](https://react-redux.js.org/)
+* [Node](https://nodejs.org/docs/latest-v12.x/api/)
+
+### Explore Page Snippet
+```js
+function HomePage() {
+    const dispatch = useDispatch();
+    const images = useSelector((state) => Object.values(state.image.all));
+
+    useEffect(() => {
+        dispatch(loadImages())
+    },[dispatch]);
+
+    const sessionUser = useSelector(state => state.session.user);
+    if (!sessionUser) return <Redirect to = '/' />;
+
+    return (
+        <div className='homepage-container'>
+            <div className = 'homepage-headline-div'>
+                <h1 className = 'homepage-headline'>
+                    Explore
+                </h1>
+            </div>
+            <div className = 'homepage-all-images'>
+                {images.length > 0 ? images.map(image => (
+                    <NavLink
+                        className = 'homepage-nav-wrapper'
+                        key = {image.id}
+                        to = {`/homepage/images/${image.id}`}
+                        onClick = {() => console.log('hit redirect')}
+                    >
+                        <img
+                            src = {image.imageUrl}
+                            alt = 'car'
+                            className = 'homepage-images'
+                        />
+                        <div
+                            className = 'homepage-image-content'
+                        >
+                            {image.content}
+                        </div>
+                    </NavLink>
+                )) : null}
+            </div>
+        </div>
+    )
+}
+```
+
+## Conclusion
