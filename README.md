@@ -165,3 +165,6 @@ function HomePage() {
 ```
 
 ## Conclusion
+Since I have a passion for photography, Drivr was a really fun project for me. I use Flickr personally to host some of my images, creating an app that links my passion for photography and my love for cars was really fun.
+
+In the future, I hope to spend more time adding more features, including a search feature and potentially the ability to save images from other users. 
